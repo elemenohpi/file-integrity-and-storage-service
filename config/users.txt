@@ -1,0 +1,12 @@
+alice apple123 user
+bob banana456 user
+carol cherry789 user
+dave dragon321 user
+erin eagle654 user
+frank falcon987 user
+grace grape246 user
+mallory mischief135 user
+emma employee1 employee
+eli employee2 employee
+tester tester123 user
+trainee trainee123 employee

@@ -1,0 +1,143 @@
+# The file integrity service.
+#
+#   docker compose up --build      start everything
+#   docker compose down -v         stop everything and delete all stored data
+#
+# The speed of the simulation and the sequence to run are set in the file .env
+
+name: fis
+
+# Settings shared by every node.
+x-node: &node
+  build: .
+  image: fis-node
+  init: true
+  restart: on-failure
+  mem_limit: 256m
+  memswap_limit: 256m
+  cpus: 1.0
+  networks:
+    - fisnet
+
+services:
+
+  gateway:
+    <<: *node
+    command: gateway
+    environment:
+      SIM_SPEED: ${SPEED:-10}
+    volumes:
+      - logs:/logs
+
+  scheduler:
+    <<: *node
+    command: scheduler
+    environment:
+      SIM_SPEED: ${SPEED:-10}
+      EXEC_NODES: exec1,exec2,exec3
+    volumes:
+      - logs:/logs
+
+  storage:
+    <<: *node
+    command: storage
+    environment:
+      SIM_SPEED: ${SPEED:-10}
+    volumes:
+      - logs:/logs
+      - data:/data
+
+  exec1:
+    <<: *node
+    command: execnode
+    environment:
+      SIM_SPEED: ${SPEED:-10}
+      NODE_NAME: exec1
+    volumes:
+      - logs:/logs
+    tmpfs:
+      - /work:size=64m
+
+  exec2:
+    <<: *node
+    command: execnode
+    environment:
+      SIM_SPEED: ${SPEED:-10}
+      NODE_NAME: exec2
+    volumes:
+      - logs:/logs
+    tmpfs:
+      - /work:size=64m
+
+  exec3:
+    <<: *node
+    command: execnode
+    environment:
+      SIM_SPEED: ${SPEED:-10}
+      NODE_NAME: exec3
+    volumes:
+      - logs:/logs
+    tmpfs:
+      - /work:size=64m
+
+  # A place to run the client by hand:
+  #   docker compose exec client fis login tester tester123
+  client:
+    build: .
+    image: fis-node
+    init: true
+    command: sleep infinity
+    working_dir: /samples
+    networks:
+      - fisnet
+    volumes:
+      - ./samples:/samples
+
+  # ---------------------------------------------------------------------
+  # The two services below belong to the course staff. Do not change them
+  # and do not change the files in monitor/ and outside/.
+  # ---------------------------------------------------------------------
+
+  # Plays the people who use the service, measures the system and serves
+  # the dashboard at http://localhost:8080
+  monitor:
+    build:
+      context: .
+      dockerfile: monitor/Dockerfile
+    image: fis-monitor
+    init: true
+    networks:
+      - fisnet
+    environment:
+      SIM_SPEED: ${SPEED:-10}
+      SEQUENCE: ${SEQUENCE:-normal}
+    ports:
+      - "${DASHBOARD_PORT:-8080}:8080"
+    volumes:
+      - logs:/logs
+      - ./runs:/runs
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - gateway
+      - scheduler
+      - storage
+      - exec1
+      - exec2
+      - exec3
+      - outside
+
+  # A computer somewhere on the internet that has nothing to do with the
+  # service.
+  outside:
+    build: ./outside
+    image: fis-outside
+    init: true
+    networks:
+      - fisnet
+
+networks:
+  fisnet:
+
+volumes:
+  logs:
+  data:

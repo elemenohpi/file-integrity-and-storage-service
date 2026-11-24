@@ -1,0 +1,5 @@
+# .gitignore -- course staff file, do not modify.
+#
+# The monitor saves every run in this folder. Runs are not kept in git.
+*
+!.gitignore

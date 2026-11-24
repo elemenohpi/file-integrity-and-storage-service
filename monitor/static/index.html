@@ -1,0 +1,122 @@
+<!-- index.html -- course staff file, do not modify. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIS monitor</title>
+<link rel="stylesheet" href="dashboard.css">
+<script src="chart.umd.min.js"></script>
+</head>
+<body>
+<div class="topbar">
+  <h1 id="title">FIS monitor</h1>
+  <nav class="tabs" aria-label="Pages">
+    <a class="tab active" href="/" aria-current="page">Dashboard</a>
+    <a class="tab" href="/docs.html">Documentation</a>
+  </nav>
+  <span class="pill" id="pill-sequence">sequence: --</span>
+  <span class="pill" id="pill-speed">speed: --</span>
+  <span class="pill" id="pill-time">sim time: --</span>
+  <span class="pill" id="pill-progress">events: --</span>
+  <span class="pill state-running" id="pill-state">--</span> <button class="help" type="button" data-help-key="topbar" aria-label="What this shows">?</button>
+  <button class="theme-toggle" id="theme-toggle" type="button">Toggle theme</button>
+</div>
+
+<main>
+
+  <div id="startup-banner" class="pill" style="display:none; background: var(--status-critical); color: #fff; margin-bottom:16px; border-color: var(--status-critical);"></div>
+
+  <section class="card">
+    <h2>Overview <button class="help" type="button" data-help-key="overview" aria-label="What this shows">?</button></h2>
+    <div class="tiles" id="tiles"></div>
+    <p class="unit-note">Every delay on this page is in simulated milliseconds (ms).</p>
+  </section>
+
+  <section class="card">
+    <h2>Throughput &amp; job delays <button class="help" type="button" data-help-key="throughput" aria-label="What this shows">?</button> <button class="mini" type="button" data-log="latency" aria-pressed="false">Log scale</button></h2>
+    <div class="grid-2">
+      <div class="chart-wrap"><canvas id="chart-throughput"></canvas></div>
+      <div class="chart-wrap"><canvas id="chart-latency"></canvas></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Queue length, pending jobs &amp; jobs per node <button class="help" type="button" data-help-key="queue" aria-label="What this shows">?</button></h2>
+    <div class="grid-3">
+      <div class="chart-wrap"><canvas id="chart-queue"></canvas></div>
+      <div class="chart-wrap"><canvas id="chart-pending"></canvas></div>
+      <div class="chart-wrap"><canvas id="chart-pernode"></canvas></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>File access &amp; communication delays <button class="help" type="button" data-help-key="fileaccess" aria-label="What this shows">?</button> <button class="mini" type="button" data-log="fileaccess comm" aria-pressed="false">Log scale</button></h2>
+    <div class="grid-2">
+      <div class="chart-wrap"><canvas id="chart-fileaccess"></canvas></div>
+      <div class="chart-wrap"><canvas id="chart-comm"></canvas></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Network overhead <button class="help" type="button" data-help-key="overhead" aria-label="What this shows">?</button> <button class="mini" type="button" data-log="overhead" aria-pressed="false">Log scale</button></h2>
+    <div class="chart-wrap"><canvas id="chart-overhead"></canvas></div>
+  </section>
+
+  <section class="card">
+    <h2>Resources (CPU, memory, /work usage) <button class="help" type="button" data-help-key="resources" aria-label="What this shows">?</button></h2>
+    <div class="grid-2">
+      <div class="chart-wrap"><canvas id="chart-cpu"></canvas></div>
+      <div class="chart-wrap"><canvas id="chart-mem"></canvas></div>
+    </div>
+    <div class="chart-wrap short" style="margin-top:16px;"><canvas id="chart-work"></canvas></div>
+  </section>
+
+  <section class="card">
+    <h2>Node status <button class="help" type="button" data-help-key="nodes" aria-label="What this shows">?</button></h2>
+    <table class="data" id="table-nodes">
+      <thead><tr><th>Node</th><th>Status</th><th>Restarts</th><th>CPU %</th><th>Mem (MB)</th><th>/work %</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Fairness across users (mean job latency) <button class="help" type="button" data-help-key="fairness" aria-label="What this shows">?</button> <button class="mini" type="button" data-log="fairness" aria-pressed="false">Log scale</button></h2>
+    <div class="chart-wrap"><canvas id="chart-fairness"></canvas></div>
+  </section>
+
+  <section class="card" id="section-hostile" style="display:none;">
+    <h2>Hostile events <button class="help" type="button" data-help-key="hostile" aria-label="What this shows">?</button></h2>
+    <label class="card-note"><input type="checkbox" id="markers-toggle" checked> Mark the start of each event on the charts: a dashed line with the number of the event.</label>
+    <table class="data" id="table-hostile">
+      <thead><tr><th>#</th><th>Started (min)</th><th>Judged (min)</th><th>Kind</th><th>Description</th><th>Outcome</th><th>Evidence</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Downloads <button class="help" type="button" data-help-key="downloads" aria-label="What this shows">?</button></h2>
+    <div class="downloads">
+      <a href="/download/checkpoints.csv">checkpoints.csv</a>
+      <a href="/download/jobs.csv">jobs.csv</a>
+      <a href="/download/hostile.csv">hostile.csv</a>
+      <a href="/download/summary.json">summary.json</a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Compare with an earlier run <button class="help" type="button" data-help-key="compare" aria-label="What this shows">?</button> <button class="mini" type="button" data-log="compare" aria-pressed="false">Log scale</button></h2>
+    <div class="controls">
+      <label>Measurement <select id="compare-metric"></select></label>
+      <label>Earlier run <select id="compare-select"><option value="">(none)</option></select></label>
+    </div>
+    <div class="chart-wrap"><canvas id="chart-compare"></canvas></div>
+  </section>
+
+</main>
+
+<footer>FIS staff monitor &mdash; polls /api/state every 1.5s</footer>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

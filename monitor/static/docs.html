@@ -1,0 +1,660 @@
+<!-- docs.html -- course staff file, do not modify. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIS documentation</title>
+<link rel="stylesheet" href="dashboard.css">
+<script>
+  // Use the theme chosen on the dashboard.
+  (function () {
+    try {
+      var saved = localStorage.getItem("fis-theme");
+      if (saved) document.documentElement.setAttribute("data-theme", saved);
+    } catch (e) { /* ignore */ }
+  })();
+</script>
+</head>
+<body>
+<div class="topbar">
+  <h1 id="title">FIS monitor</h1>
+  <nav class="tabs" aria-label="Pages">
+    <a class="tab" href="/">Dashboard</a>
+    <a class="tab active" href="/docs.html" aria-current="page">Documentation</a>
+  </nav>
+  <button class="theme-toggle" id="theme-toggle" type="button">Toggle theme</button>
+</div>
+
+<main class="docs">
+
+<nav class="toc" aria-label="Contents">
+  <div class="toc-title">Contents</div>
+  <a href="#service">1. The service</a>
+  <a href="#architecture">2. Architecture</a>
+  <a href="#job-path">3. How a job travels</a>
+  <a href="#messages">4. Messages</a>
+  <a href="#jobs">5. Jobs and scripts</a>
+  <a href="#files">6. Files and storage</a>
+  <a href="#client">7. The client</a>
+  <a href="#accounts">8. Accounts</a>
+  <a href="#source">9. Source files</a>
+  <a href="#folder">10. The folder and the commands</a>
+  <a href="#simulation">11. The simulation</a>
+  <a href="#time">12. Simulated time and the disk</a>
+  <a href="#dashboard">13. The dashboard</a>
+  <a href="#runfiles">14. The files of a run</a>
+  <a href="#logs">15. The logs</a>
+</nav>
+
+<article>
+
+<section class="card" id="service">
+  <h2>1. The service</h2>
+  <p>A company keeps a library of reference files. People upload files to the
+  service, and the service tells them whether each file is intact or has been
+  modified. The service also stores files and returns them on request.</p>
+  <p>Two kinds of people use the service.</p>
+  <ul>
+    <li><b>Users</b> upload files, check whether their uploaded files are intact
+    or modified, and request files from the library. They can do nothing else.</li>
+    <li><b>Employees</b> can do everything a user can do. They also maintain the
+    library: they add files to it, modify them and remove them.</li>
+  </ul>
+  <p>A file that a person uploads belongs to that person. The library belongs
+  to the company, and everyone may read it.</p>
+  <p>This page describes the system as you received it. It does not change
+  when you change the system.</p>
+</section>
+
+<section class="card" id="architecture">
+  <h2>2. Architecture</h2>
+  <p>The service is not a single program. It is split into nodes, and each node
+  is in charge of one part of the work. Each node runs in its own Docker
+  container. The nodes talk to each other with messages over TCP sockets.</p>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 900 420" role="img" aria-labelledby="arch-title arch-desc">
+      <title id="arch-title">The nodes of the service</title>
+      <desc id="arch-desc">The client and the monitor send requests to the
+      gateway. The gateway talks to the scheduler and to the storage node. The
+      scheduler sends jobs to three execution nodes. The execution nodes read
+      and write files on the storage node. The container named outside is not
+      part of the service.</desc>
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" class="d-arrowhead"/>
+        </marker>
+      </defs>
+
+      <!-- arrows -->
+      <line class="d-line" x1="170" y1="120" x2="248" y2="176" marker-end="url(#arrow)"/>
+      <line class="d-line" x1="170" y1="260" x2="248" y2="206" marker-end="url(#arrow)"/>
+      <line class="d-line" x1="400" y1="176" x2="488" y2="104" marker-end="url(#arrow)"/>
+      <line class="d-line" x1="400" y1="206" x2="488" y2="286" marker-end="url(#arrow)"/>
+      <line class="d-line" x1="640" y1="90" x2="718" y2="90" marker-end="url(#arrow)"/>
+      <line class="d-line" x1="720" y1="300" x2="642" y2="300" marker-end="url(#arrow)"/>
+
+      <text class="d-label" x="432" y="124" text-anchor="end">jobs</text>
+      <text class="d-label" x="432" y="268" text-anchor="end">files</text>
+      <text class="d-label" x="679" y="80" text-anchor="middle">jobs</text>
+      <text class="d-label" x="681" y="290" text-anchor="middle">files</text>
+
+      <!-- people side -->
+      <rect class="d-box d-outer" x="20" y="90" width="150" height="60" rx="8"/>
+      <text class="d-name" x="95" y="116" text-anchor="middle">client</text>
+      <text class="d-sub" x="95" y="135" text-anchor="middle">the fis program</text>
+
+      <rect class="d-box d-outer" x="20" y="230" width="150" height="60" rx="8"/>
+      <text class="d-name" x="95" y="256" text-anchor="middle">monitor</text>
+      <text class="d-sub" x="95" y="275" text-anchor="middle">plays the people</text>
+
+      <rect class="d-box d-outside" x="20" y="350" width="150" height="54" rx="8"/>
+      <text class="d-name" x="95" y="373" text-anchor="middle">outside</text>
+      <text class="d-sub" x="95" y="392" text-anchor="middle">the internet</text>
+
+      <!-- service -->
+      <rect class="d-box" x="250" y="160" width="150" height="60" rx="8"/>
+      <text class="d-name" x="325" y="186" text-anchor="middle">gateway</text>
+      <text class="d-sub" x="325" y="205" text-anchor="middle">port 9000</text>
+
+      <rect class="d-box" x="490" y="60" width="150" height="60" rx="8"/>
+      <text class="d-name" x="565" y="86" text-anchor="middle">scheduler</text>
+      <text class="d-sub" x="565" y="105" text-anchor="middle">port 9001</text>
+
+      <rect class="d-box" x="490" y="270" width="150" height="60" rx="8"/>
+      <text class="d-name" x="565" y="296" text-anchor="middle">storage</text>
+      <text class="d-sub" x="565" y="315" text-anchor="middle">port 9002</text>
+
+      <rect class="d-group" x="720" y="30" width="160" height="320" rx="10"/>
+      <text class="d-sub" x="800" y="52" text-anchor="middle">execution nodes</text>
+      <rect class="d-box" x="740" y="66" width="120" height="56" rx="8"/>
+      <text class="d-name" x="800" y="90" text-anchor="middle">exec1</text>
+      <text class="d-sub" x="800" y="109" text-anchor="middle">port 9003</text>
+      <rect class="d-box" x="740" y="162" width="120" height="56" rx="8"/>
+      <text class="d-name" x="800" y="186" text-anchor="middle">exec2</text>
+      <text class="d-sub" x="800" y="205" text-anchor="middle">port 9003</text>
+      <rect class="d-box" x="740" y="258" width="120" height="56" rx="8"/>
+      <text class="d-name" x="800" y="282" text-anchor="middle">exec3</text>
+      <text class="d-sub" x="800" y="301" text-anchor="middle">port 9003</text>
+    </svg>
+    <figcaption>An arrow points from the program that opens a connection to the
+    program that answers it.</figcaption>
+  </figure>
+
+  <table class="data">
+    <thead><tr><th>Node</th><th>Source file</th><th>Port</th><th>Responsibility</th></tr></thead>
+    <tbody>
+      <tr><td>Gateway</td><td><code>gateway.cpp</code></td><td>9000</td><td>Receives every request from users and employees, checks who is asking, and passes the request into the system. It handles one request at a time.</td></tr>
+      <tr><td>Scheduler</td><td><code>scheduler.cpp</code></td><td>9001</td><td>Keeps the list of jobs, hands each job to an execution node and remembers its state and its result. It handles one request at a time. One more thread per execution node sends the jobs out.</td></tr>
+      <tr><td>Storage</td><td><code>storage.cpp</code></td><td>9002</td><td>Holds the library and the uploaded files, and an index that lists every stored file. It starts one thread for each request.</td></tr>
+      <tr><td>Execution (<code>exec1</code>, <code>exec2</code>, <code>exec3</code>)</td><td><code>execnode.cpp</code></td><td>9003</td><td>Runs the script of a job and returns its output. A node runs one job at a time.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The containers</h3>
+  <p>The file <code>compose.yml</code> describes nine containers. All of them are
+  on one network named <code>fisnet</code>, and they reach each other by name
+  (for example <code>storage</code>).</p>
+  <table class="data wrap">
+    <thead><tr><th>Container</th><th>What it is</th></tr></thead>
+    <tbody>
+      <tr><td><code>gateway</code>, <code>scheduler</code>, <code>storage</code>, <code>exec1</code>, <code>exec2</code>, <code>exec3</code></td><td>The six nodes of the service. They are built from one image, <code>fis-node</code>. Each has 256 MB of memory and one CPU, and is started again when its program crashes.</td></tr>
+      <tr><td><code>client</code></td><td>A place to run the <code>fis</code> client by hand. The folder <code>samples/</code> is its working folder.</td></tr>
+      <tr><td><code>monitor</code></td><td>Plays the people who use the service, measures the system and serves this dashboard. Its port 8080 is the only port that is open to your computer.</td></tr>
+      <tr><td><code>outside</code></td><td>A computer somewhere on the internet that has nothing to do with the service.</td></tr>
+    </tbody>
+  </table>
+  <p>Places where data is kept:</p>
+  <ul>
+    <li><code>/logs</code>: a volume shared by the six nodes and the monitor. Every node writes its log here.</li>
+    <li><code>/data</code>: a volume of the storage node. It holds the stored files and the index.</li>
+    <li><code>/work</code>: a 64 MB disk in memory on each execution node, for the files of running jobs.</li>
+    <li><code>/config/users.txt</code>: the accounts, copied into the image when it is built.</li>
+  </ul>
+  <p><code>docker compose down -v</code> deletes <code>/logs</code> and <code>/data</code>, so the next run starts empty.</p>
+</section>
+
+<section class="card" id="job-path">
+  <h2>3. How a job travels</h2>
+  <p>Work is done in two steps. First, a person uploads one or more files.
+  Second, the person submits a script that says what to do with files. The
+  script becomes a job, and the person asks for the result later.</p>
+  <ol class="steps">
+    <li><b>Login.</b> <code>fis login</code> sends the name and the password to the
+    gateway. The gateway looks them up in <code>/config/users.txt</code> and replies
+    with a token. The client saves the token in its session file and sends it
+    with every later request.</li>
+    <li><b>Upload.</b> <code>fis upload</code> sends the contents of a file to the
+    gateway. The gateway passes them to the storage node, which writes the file
+    into the uploads of that person and adds an entry to its index.</li>
+    <li><b>Submit.</b> <code>fis submit</code> sends the text of a script to the
+    gateway. The gateway passes it to the scheduler, together with the name and
+    the role of the person. The scheduler gives the job a number, adds it to
+    its list in the state <code>waiting</code>, and replies with the number.</li>
+    <li><b>Dispatch.</b> The scheduler has one dispatch thread for each execution
+    node. A job is given to one node when it is submitted. Once every simulated
+    second the thread looks for a waiting job of its node, sends it to the node
+    and sets the state of the job to <code>running</code>.</li>
+    <li><b>Run.</b> The execution node makes the work folder
+    <code>/work/job-&lt;number&gt;</code> and runs the script line by line. For a
+    <code>check</code> it asks the storage node for the uploaded file and for the
+    library file, saves both in the work folder and compares them. For
+    <code>add</code> and <code>modify</code> it asks for the uploaded file and
+    sends it to the storage node as a library file. For <code>remove</code> it
+    asks the storage node to delete the library file. Every line of the script
+    adds one line to the file <code>output.txt</code> in the work folder.</li>
+    <li><b>Finish.</b> The execution node reads the output back, keeps a copy in
+    <code>/tmp/results/job-&lt;number&gt;.txt</code> and replies to the scheduler
+    with the output. The scheduler stores the output and sets the state of the
+    job to <code>done</code>.</li>
+    <li><b>Result.</b> <code>fis status</code> and <code>fis result</code> go
+    through the gateway to the scheduler, which replies with the state or with
+    the stored output.</li>
+  </ol>
+</section>
+
+<section class="card" id="messages">
+  <h2>4. Messages</h2>
+  <p>The message format and the socket code are in <code>common.h</code> and
+  <code>common.cpp</code>. Every request uses its own TCP connection: the sender
+  connects, sends one message, reads one reply and closes the connection. The
+  function <code>call</code> does all of this.</p>
+  <p>A message is a header of 512 bytes followed by the payload. Every field of
+  the header is text, padded with zero bytes up to its full size.</p>
+  <table class="data">
+    <thead><tr><th>Field</th><th>Size (bytes)</th><th>Contents</th></tr></thead>
+    <tbody>
+      <tr><td><code>type</code></td><td>16</td><td>What is asked, or <code>OK</code> / <code>ERROR</code> in a reply</td></tr>
+      <tr><td><code>sender</code></td><td>32</td><td>The name of the program that sent the message</td></tr>
+      <tr><td><code>token</code></td><td>64</td><td>The login token of the person making the request</td></tr>
+      <tr><td><code>name</code></td><td>128</td><td>A file name or a user name</td></tr>
+      <tr><td><code>arg</code></td><td>64</td><td>A small extra value, for example a job number</td></tr>
+      <tr><td><code>length</code></td><td>16</td><td>The number of payload bytes that follow the header</td></tr>
+      <tr><td><code>reserved</code></td><td>192</td><td>Kept for future use</td></tr>
+    </tbody>
+  </table>
+  <p>The payload (<code>data</code>) is, for example, the contents of a file, the
+  text of a script or the output of a job. In an <code>ERROR</code> reply it is
+  the reason.</p>
+
+  <h3>Requests</h3>
+  <table class="data">
+    <thead><tr><th>To</th><th>Type</th><th>Fields of the request</th><th>Reply</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="6">Gateway</td><td><code>LOGIN</code></td><td>name = user, data = password</td><td>data = token</td></tr>
+      <tr><td><code>UPLOAD</code></td><td>token, name = file, data = contents</td><td></td></tr>
+      <tr><td><code>SUBMIT</code></td><td>token, data = script</td><td>arg = job number</td></tr>
+      <tr><td><code>STATUS</code></td><td>token, arg = job number</td><td>data = state</td></tr>
+      <tr><td><code>RESULT</code></td><td>token, arg = job number</td><td>data = output</td></tr>
+      <tr><td><code>REQUEST</code></td><td>token, name = file</td><td>data = contents</td></tr>
+      <tr><td rowspan="3">Scheduler</td><td><code>SUBMIT</code></td><td>name = user, arg = role, data = script</td><td>arg = job number</td></tr>
+      <tr><td><code>STATUS</code></td><td>arg = job number</td><td>data = state</td></tr>
+      <tr><td><code>RESULT</code></td><td>arg = job number</td><td>data = output</td></tr>
+      <tr><td rowspan="3">Storage</td><td><code>PUT</code></td><td>name = file, arg = "area owner", data = contents</td><td></td></tr>
+      <tr><td><code>GET</code></td><td>name = file, arg = "area owner"</td><td>data = contents</td></tr>
+      <tr><td><code>DEL</code></td><td>name = file, arg = "area owner"</td><td></td></tr>
+      <tr><td>Execution</td><td><code>RUN</code></td><td>name = user, arg = "job number role", data = script</td><td>data = output</td></tr>
+    </tbody>
+  </table>
+  <p>The area is <code>library</code> or <code>upload</code>. Library files have
+  the owner <code>-</code>.</p>
+</section>
+
+<section class="card" id="jobs">
+  <h2>5. Jobs and scripts</h2>
+  <p>A script is a text file with one command per line. The first word of a
+  line is the command, and the rest of the line is a file name.</p>
+  <table class="data">
+    <thead><tr><th>Command</th><th>Who</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td><code>check &lt;file&gt;</code></td><td>everyone</td><td>Compare the file that the person uploaded with the library file of the same name</td></tr>
+      <tr><td><code>add &lt;file&gt;</code></td><td>employees</td><td>Put the uploaded file into the library</td></tr>
+      <tr><td><code>modify &lt;file&gt;</code></td><td>employees</td><td>Replace the library file with the uploaded file</td></tr>
+      <tr><td><code>remove &lt;file&gt;</code></td><td>employees</td><td>Delete the file from the library</td></tr>
+    </tbody>
+  </table>
+  <p>The output of a job has one line for each command, in the form
+  <code>&lt;file&gt;: &lt;verdict&gt;</code>.</p>
+  <table class="data">
+    <thead><tr><th>Verdict</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td><code>intact</code></td><td>The uploaded file is the same as the library file</td></tr>
+      <tr><td><code>modified</code></td><td>The uploaded file differs from the library file</td></tr>
+      <tr><td><code>not in library</code></td><td>The library has no file with this name</td></tr>
+      <tr><td><code>not uploaded</code></td><td>The person has not uploaded a file with this name</td></tr>
+      <tr><td><code>added</code>, <code>updated</code>, <code>removed</code></td><td>An employee command was carried out</td></tr>
+      <tr><td><code>permission denied</code></td><td>The person is not allowed to use this command</td></tr>
+      <tr><td><code>failed</code></td><td>The command could not be carried out</td></tr>
+    </tbody>
+  </table>
+  <p>A command works on the files as they are when the job runs, not as they
+  were when the job was submitted. A command that needs the uploaded file looks
+  for it first: when the person has not uploaded the file, the verdict is
+  <code>not uploaded</code>, whether or not the library has it. A line whose
+  first word is not one of the four commands gives the output line
+  <code>unknown command: &lt;word&gt;</code>.</p>
+  <p>For example, a user who submits the script on the left receives the output
+  on the right.</p>
+<pre>check plan.txt                   plan.txt: intact
+check draft.txt                  draft.txt: not in library
+add plan.txt                     plan.txt: permission denied</pre>
+  <h3>The states of a job</h3>
+  <p>A job is always in one state: <code>waiting</code>, <code>running</code> or
+  <code>done</code>. The scheduler keeps the jobs, their states and their outputs
+  in its memory.</p>
+</section>
+
+<section class="card" id="files">
+  <h2>6. Files and storage</h2>
+  <p>The storage node keeps two kinds of files on its disk.</p>
+  <table class="data">
+    <thead><tr><th>Area</th><th>Path on the storage node</th></tr></thead>
+    <tbody>
+      <tr><td>The library</td><td><code>/data/library/&lt;file&gt;</code></td></tr>
+      <tr><td>The uploads of a person</td><td><code>/data/uploads/&lt;person&gt;/&lt;file&gt;</code></td></tr>
+    </tbody>
+  </table>
+  <p>Every stored file has an entry in the index, the file
+  <code>/data/index.txt</code>. An entry is one line with four fields separated
+  by tabs: the area, the owner, the file name and the state.</p>
+  <table class="data">
+    <thead><tr><th>Request</th><th>What the storage node does</th></tr></thead>
+    <tbody>
+      <tr><td><code>PUT</code></td><td>Writes the file to the disk and adds an entry with the state <code>stored</code> to the end of the index</td></tr>
+      <tr><td><code>GET</code></td><td>Looks for the entry of the file in the index, then reads the file from the disk and returns it</td></tr>
+      <tr><td><code>DEL</code></td><td>Looks for the entry of the file, sets the state of its entries to <code>deleted</code> and writes the index again. The file itself stays on the disk</td></tr>
+    </tbody>
+  </table>
+  <h3>The states of a file</h3>
+  <p>An entry of the index is always in one state: <code>stored</code> or
+  <code>deleted</code>.</p>
+  <p>The storage is slow. Finding a file takes time, and so does reading it
+  from the disk or writing it to the disk. These delays are simulated, so that
+  they are the same on every computer (see
+  <a href="#time">Simulated time and the disk</a>).</p>
+</section>
+
+<section class="card" id="client">
+  <h2>7. The client</h2>
+  <p>Users and employees reach the service through a command line client named
+  <code>fis</code>. Its source is <code>client.cpp</code>.</p>
+  <table class="data">
+    <thead><tr><th>Command</th><th>What it does and what it prints</th></tr></thead>
+    <tbody>
+      <tr><td><code>fis login &lt;user&gt; &lt;password&gt;</code></td><td>Logs in and remembers the session. Prints <code>logged in as &lt;user&gt;</code></td></tr>
+      <tr><td><code>fis upload &lt;file&gt;</code></td><td>Uploads the file. Prints <code>uploaded &lt;name&gt;</code></td></tr>
+      <tr><td><code>fis submit &lt;script-file&gt;</code></td><td>Submits the script as a job. Prints <code>job &lt;number&gt;</code></td></tr>
+      <tr><td><code>fis status &lt;job&gt;</code></td><td>Prints the state of the job</td></tr>
+      <tr><td><code>fis result &lt;job&gt;</code></td><td>Prints the output of a finished job</td></tr>
+      <tr><td><code>fis request &lt;file&gt;</code></td><td>Prints the contents of the library file</td></tr>
+    </tbody>
+  </table>
+  <p>The client exits with status 0 when the request worked. Otherwise it
+  prints a line that starts with <code>error:</code> on the standard error
+  stream and exits with status 1.</p>
+  <p>The client reads two environment variables: <code>FIS_GATEWAY</code> is the
+  host name of the gateway (<code>gateway</code> when it is not set), and
+  <code>FIS_SESSION</code> is the file in which the session is remembered
+  (<code>$HOME/.fis_session</code> when it is not set).</p>
+  <h3>Trying it by hand</h3>
+  <p>Run the client in the <code>client</code> container, from the handout
+  folder.</p>
+<pre>docker compose exec client fis login tester tester123
+docker compose exec client fis upload report.txt
+docker compose exec client fis submit check.txt
+docker compose exec client fis status 12
+docker compose exec client fis result 12</pre>
+  <p>Here 12 stands for the job number that <code>fis submit</code> printed. The
+  files <code>report.txt</code>, <code>check.txt</code> and <code>add.txt</code> are
+  in <code>samples/</code>. Whatever you do by hand while a sequence is playing
+  is part of the measurements of that run.</p>
+</section>
+
+<section class="card" id="accounts">
+  <h2>8. Accounts</h2>
+  <p>The accounts are in <code>config/users.txt</code>. Each line has a name, a
+  password and a role (<code>user</code> or <code>employee</code>).</p>
+  <table class="data">
+    <thead><tr><th>Account</th><th>Password</th><th>Role</th><th>Meant for</th></tr></thead>
+    <tbody>
+      <tr><td><code>tester</code></td><td><code>tester123</code></td><td>user</td><td>Trying things by hand</td></tr>
+      <tr><td><code>trainee</code></td><td><code>trainee123</code></td><td>employee</td><td>Trying things by hand</td></tr>
+      <tr><td>all the others</td><td>see the file</td><td>users and employees</td><td>Played by the monitor during a run. Do not use them by hand.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="card" id="source">
+  <h2>9. Source files</h2>
+  <p>The whole system is about 1,300 lines of C++ in <code>src/</code>. The
+  source file of each node starts with a comment that lists the requests it
+  handles.</p>
+  <table class="data wrap">
+    <thead><tr><th>File</th><th>What is in it</th></tr></thead>
+    <tbody>
+      <tr><td><code>common.h</code>, <code>common.cpp</code></td><td>Shared by every node and by the client. The ports, the <code>Message</code> structure and the header of a message. <code>listen_on</code> and <code>connect_to</code> open sockets. <code>send_message</code> and <code>recv_message</code> send and receive one message. <code>call</code> sends a request to another node and waits for the reply. <code>make_reply</code> builds a reply. <code>log_event</code> writes a line of the log. <code>split</code> and <code>trim</code> are small text helpers.</td></tr>
+      <tr><td><code>gateway.cpp</code></td><td><code>check_password</code> looks a person up in the users file. <code>handle_login</code> answers a login. <code>handle</code> reads the token of every other request and forwards the request to the storage node or to the scheduler. <code>main</code> accepts connections.</td></tr>
+      <tr><td><code>scheduler.cpp</code></td><td>The <code>Job</code> structure and the list of jobs. <code>handle_submit</code>, <code>handle_status</code> and <code>handle_result</code> answer the three requests. <code>dispatch</code> is the thread that sends jobs to one execution node. <code>main</code> starts the dispatch threads and accepts connections.</td></tr>
+      <tr><td><code>storage.cpp</code></td><td><code>load_index</code>, <code>save_index</code> and <code>append_to_index</code> read and write the index. <code>find_entry</code> looks for a file in the index. <code>handle_put</code>, <code>handle_get</code> and <code>handle_del</code> answer the three requests. <code>serve</code> is the thread that handles one request.</td></tr>
+      <tr><td><code>execnode.cpp</code></td><td><code>run_job</code> runs a script line by line. <code>do_check</code>, <code>do_store</code> (for <code>add</code> and <code>modify</code>) and <code>do_remove</code> carry out the commands. <code>fetch</code> asks the storage node for a file. <code>same_contents</code> compares two files. <code>write_output</code> adds a line to the output of the job. <code>archive_result</code> keeps a copy of the result on the node.</td></tr>
+      <tr><td><code>client.cpp</code></td><td>The <code>fis</code> program. <code>main</code> handles its six commands; small helper functions read and write the session file and read a file to send.</td></tr>
+      <tr><td><code>sim.h</code>, <code>sim.cpp</code></td><td>The simulated clock and the simulated cost of the disk. These two files are not yours to modify.</td></tr>
+    </tbody>
+  </table>
+  <p>The <code>Makefile</code> builds the five programs (<code>gateway</code>,
+  <code>scheduler</code>, <code>storage</code>, <code>execnode</code> and
+  <code>fis</code>) into <code>bin/</code> with <code>g++</code>. The
+  <code>Dockerfile</code> builds the image that every node and the client
+  container use: Debian 12 with <code>g++</code>, <code>make</code> and the
+  OpenSSL library.</p>
+</section>
+
+<section class="card" id="folder">
+  <h2>10. The folder and the commands</h2>
+  <table class="data">
+    <thead><tr><th>Path</th><th>Contents</th></tr></thead>
+    <tbody>
+      <tr><td><code>src/</code></td><td>The C++ source of the nodes and the client</td></tr>
+      <tr><td><code>Makefile</code>, <code>Dockerfile</code></td><td>Build the programs and the image that every node uses</td></tr>
+      <tr><td><code>compose.yml</code></td><td>Describes the containers, their limits and their network</td></tr>
+      <tr><td><code>.env</code></td><td>The settings of a run</td></tr>
+      <tr><td><code>config/users.txt</code></td><td>The accounts of the service</td></tr>
+      <tr><td><code>samples/</code></td><td>A few files for trying the client by hand</td></tr>
+      <tr><td><code>monitor/</code>, <code>outside/</code></td><td>Programs that belong to the course staff</td></tr>
+      <tr><td><code>runs/</code></td><td>The measurements of every run are saved here</td></tr>
+      <tr><td><code>report/report.docx</code></td><td>The template of the written document</td></tr>
+    </tbody>
+  </table>
+  <p>The commands below are run in the handout folder.</p>
+<pre>docker compose up --build          build and start everything
+docker compose down -v             stop everything and delete all stored data
+docker compose logs -f storage     follow the log of one node
+docker compose ps                  list the containers and their state</pre>
+  <p>The settings of a run are in the file <code>.env</code>. Its name starts with a dot, so Linux and macOS hide it: list it with <code>ls -a</code>, or show hidden files in your file manager (Ctrl+H on most Linux desktops, Cmd+Shift+. in the macOS Finder). Any text editor can open it.</p>
+  <table class="data">
+    <thead><tr><th>Setting</th><th>Meaning</th><th>Default</th></tr></thead>
+    <tbody>
+      <tr><td><code>SPEED</code></td><td>The number of simulated seconds that pass in one real second</td><td><code>10</code></td></tr>
+      <tr><td><code>SEQUENCE</code></td><td>The sequence to play: <code>normal</code>, <code>hostile</code>, or one of your own</td><td><code>normal</code></td></tr>
+      <tr><td><code>DASHBOARD_PORT</code></td><td>The port of the dashboard on your computer</td><td><code>8080</code></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="card" id="simulation">
+  <h2>11. The simulation</h2>
+  <p>The system runs as a living simulation. The monitor plays the people who
+  use the service. It follows a pre-planned sequence of events, and each event
+  happens at a fixed time in the sequence. For normal activity the monitor uses
+  the service the way a person would: through the <code>fis</code> client. It
+  builds that client from your source files.</p>
+  <ul>
+    <li>The monitor starts playing the sequence as soon as the system is up.</li>
+    <li>The library starts empty. At the start of a sequence the employees fill it.</li>
+    <li>After the monitor submits a job, it asks for the status of the job every
+    two simulated seconds until the status is <code>done</code>, and then it asks
+    for the result. A job that is not <code>done</code> ten simulated minutes
+    after it was submitted counts as <b>lost</b>.</li>
+    <li>A sequence is 60 simulated minutes long. With <code>SPEED=10</code> it
+    takes six real minutes.</li>
+    <li>After the last event, the monitor waits until every job is done or
+    lost, for at most eleven more simulated minutes. Then the run is finished,
+    and the state at the top of the dashboard changes to <code>finished</code>.
+    The dashboard stays open until you stop the system.</li>
+  </ul>
+  <p>You receive two sequences: <code>normal</code> has normal activity only, and
+  <code>hostile</code> has the same kind of activity together with failures and
+  hostile events. A hostile event may do anything that an attacker on the
+  network could do. The container <code>outside</code> stands for any computer
+  on the internet.</p>
+  <h3>Sequence files</h3>
+  <p>The sequences are in <code>monitor/sequences/</code>. A sequence is a text
+  file with one JSON object per line. The first line names the sequence. Every
+  other line is one event: <code>t</code> is its time in simulated seconds,
+  <code>user</code> is the account, and <code>do</code> is what happens
+  (<code>upload</code>, <code>submit</code> or <code>request</code>). A hostile
+  event has <code>do</code> set to <code>hostile</code> and a <code>kind</code>
+  in place of the account. A
+  <code>submit</code> event carries the lines of the script and the output lines
+  that a correct system gives. You may add sequence files of your own to this
+  folder and select them with <code>SEQUENCE</code>. Read the two files you
+  received to see the form of each event.</p>
+</section>
+
+<section class="card" id="time">
+  <h2>12. Simulated time and the disk</h2>
+  <p>The files <code>sim.h</code> and <code>sim.cpp</code> hold the simulated
+  clock and the simulated cost of the disk.</p>
+  <table class="data">
+    <thead><tr><th>Function</th><th>What it stands for</th><th>Cost in simulated time</th></tr></thead>
+    <tbody>
+      <tr><td><code>sim_sleep_ms(ms)</code></td><td>Waiting</td><td>The given number of milliseconds</td></tr>
+      <tr><td><code>disk_search_delay(entries)</code></td><td>Looking through entries of the index on the disk</td><td>1 ms for each entry</td></tr>
+      <tr><td><code>disk_read_delay(bytes)</code></td><td>Reading a file from the disk</td><td>30 ms, and 2 ms for each KB</td></tr>
+      <tr><td><code>disk_write_delay(bytes)</code></td><td>Writing a file to the disk</td><td>40 ms, and 3 ms for each KB</td></tr>
+    </tbody>
+  </table>
+  <p>In the code you receive, these functions are called for five pieces of
+  disk work: searching the index, reading a stored file, writing a stored
+  file, rewriting the index, and writing the archived result of a job. The
+  specification says what you may and may not change about them.</p>
+  <p>Every delay on the dashboard and in the files of a run is in simulated
+  milliseconds. A measured delay also contains the real time that your
+  computer needs, multiplied by the speed, so a very high speed distorts the
+  numbers. Use <code>SPEED=10</code> for your measurements, and only compare
+  runs that were made at the same speed.</p>
+</section>
+
+<section class="card" id="dashboard">
+  <h2>13. The dashboard</h2>
+  <p>The <a href="/">Dashboard</a> tab shows live charts of the running system.
+  A point on a line chart is added every 20 simulated seconds and covers the
+  two simulated minutes before it. The horizontal axis of these charts is the
+  simulated minute, from 0 to 60. Hover over or tap the <b>?</b> next to a
+  heading or a tile of the dashboard to see what it shows.</p>
+  <p>Some headings have a <b>Log scale</b> button. On a log scale every step up
+  the vertical axis is ten times the step below it, so that small and large
+  values can be read on the same chart. The button changes only how the chart
+  is drawn, not the numbers.</p>
+  <table class="data wrap">
+    <thead><tr><th>Part</th><th>What it shows</th><th>Where the numbers come from</th></tr></thead>
+    <tbody>
+      <tr><td>Overview</td><td>Jobs submitted, completed and lost. Accuracy: the share of output lines that are equal to the expected line. Ambiguous verdicts: lines of a <code>check</code> whose file changed while the job was waiting or running, which are left out of the accuracy. Latency p50 and p95: half of the jobs, and 95 of 100 jobs, took at most this long.</td><td>The monitor, which submits every job and reads its result</td></tr>
+      <tr><td>Throughput &amp; job delays</td><td>Jobs completed per simulated minute. Latency: the time from the submission of a job until the monitor sees <code>done</code>. Mean wait in queue and mean run time of the jobs.</td><td>Latency from the monitor. Wait and run time from the log of the scheduler</td></tr>
+      <tr><td>Queue length, pending jobs &amp; jobs per node</td><td>The number of jobs waiting in the queue of the scheduler. Jobs pending: the jobs that were submitted and are not yet done or lost. The number of jobs that each execution node has started since the run began.</td><td>Queue length and jobs per node from the log of the scheduler. Jobs pending from the monitor</td></tr>
+      <tr><td>File access &amp; communication delays</td><td>How long <code>fis upload</code> and <code>fis request</code> take. The mean time of a storage operation, and the mean time of a call from one node to another.</td><td>Upload and request from the monitor. The others from the logs of the nodes</td></tr>
+      <tr><td>Network overhead</td><td>The bytes that the six nodes sent and received, divided by the bytes of file contents that were uploaded and requested in the same time.</td><td>Docker and the monitor</td></tr>
+      <tr><td>Resources</td><td>The CPU and memory use of each node, and how full <code>/work</code> is on each execution node.</td><td>Docker</td></tr>
+      <tr><td>Node status</td><td>Which nodes are up, and how often each node was restarted.</td><td>Docker</td></tr>
+      <tr><td>Fairness across users</td><td>The mean job latency of each user.</td><td>The monitor</td></tr>
+      <tr><td>Hostile events</td><td>Every hostile event of the run: the simulated minute in which it started, the minute in which its outcome was recorded, the outcome and the evidence for the outcome. The table appears when the sequence has hostile events. The charts over time then show a dashed line with the number of the event where each event started; a checkbox in this card turns the lines off.</td><td>The monitor</td></tr>
+      <tr><td>Downloads</td><td>The files of the current run.</td><td></td></tr>
+      <tr><td>Compare with an earlier run</td><td>One measurement that you choose, for example the p95 job latency, of the current run at every checkpoint, next to the same measurement of a run you choose from <code>runs/</code>.</td><td>The <code>checkpoints.csv</code> of both runs</td></tr>
+    </tbody>
+  </table>
+  <p>The outcome of a hostile event is <code>succeeded</code> when the event
+  achieved what it tried to do, <code>blocked</code> when the system stopped it,
+  and <code>error</code> when the monitor could not carry it out or judge it.</p>
+  <p>Because the monitor asks for the status of a job every two simulated
+  seconds, job latency moves in steps of about 2,000 ms.</p>
+</section>
+
+<section class="card" id="runfiles">
+  <h2>14. The files of a run</h2>
+  <p>The measurements of each run are saved in a new folder under
+  <code>runs/</code>. The name of the folder is the name of the sequence and the
+  time the run started. Every five simulated minutes the monitor records a
+  checkpoint.</p>
+  <table class="data">
+    <thead><tr><th>File</th><th>Contents</th></tr></thead>
+    <tbody>
+      <tr><td><code>checkpoints.csv</code></td><td>One row per checkpoint, with the measurements of the five simulated minutes before it</td></tr>
+      <tr><td><code>jobs.csv</code></td><td>One row per job</td></tr>
+      <tr><td><code>hostile.csv</code></td><td>One row per hostile event</td></tr>
+      <tr><td><code>summary.json</code></td><td>The totals of the run, written when the run is finished</td></tr>
+    </tbody>
+  </table>
+
+  <h3>checkpoints.csv</h3>
+  <p>A column that ends in <code>_window</code> covers the five simulated
+  minutes before the checkpoint. A column that ends in <code>_total</code>
+  counts from the start of the run.</p>
+  <table class="data wrap">
+    <thead><tr><th>Columns</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td><code>sim_minute</code></td><td>The simulated time of the checkpoint</td></tr>
+      <tr><td><code>jobs_submitted_window</code>, <code>jobs_completed_window</code>, <code>jobs_lost_window</code></td><td>Jobs submitted, completed and lost in the window</td></tr>
+      <tr><td><code>jobs_submitted_total</code>, <code>jobs_completed_total</code>, <code>jobs_lost_total</code>, <code>jobs_pending</code></td><td>The same since the start, and the jobs that are neither done nor lost yet</td></tr>
+      <tr><td><code>throughput_jobs_per_sim_minute</code></td><td>Jobs completed per simulated minute</td></tr>
+      <tr><td><code>job_latency_p50_ms</code>, <code>job_latency_p95_ms</code>, <code>job_latency_mean_ms</code></td><td>The time from submission to <code>done</code>, for the jobs that finished in the window</td></tr>
+      <tr><td><code>queue_wait_mean_ms</code>, <code>run_time_mean_ms</code></td><td>How long jobs waited before they started, and how long they ran</td></tr>
+      <tr><td><code>queue_len_max</code>, <code>queue_len_mean</code></td><td>The number of waiting jobs</td></tr>
+      <tr><td><code>verdict_accuracy_pct</code></td><td>The share of output lines that were correct</td></tr>
+      <tr><td><code>upload_latency_p50_ms</code>, <code>upload_latency_p95_ms</code>, <code>request_latency_p50_ms</code>, <code>request_latency_p95_ms</code></td><td>How long <code>fis upload</code> and <code>fis request</code> took</td></tr>
+      <tr><td><code>storage_time_mean_ms</code>, <code>storage_time_p95_ms</code></td><td>The time of one operation of the storage node</td></tr>
+      <tr><td><code>call_rtt_mean_ms</code>, <code>call_rtt_p95_ms</code></td><td>The time of one call from a node to another node, from connecting to the reply</td></tr>
+      <tr><td><code>request_failures_window</code></td><td>Requests that the gateway answered with <code>ERROR</code></td></tr>
+      <tr><td><code>network_bytes_total_window</code>, <code>overhead_ratio_window</code></td><td>The bytes sent and received by the six nodes, and that number divided by the bytes of file contents uploaded and requested</td></tr>
+      <tr><td><code>cpu_pct_mean_&lt;node&gt;</code>, <code>mem_mb_mean_&lt;node&gt;</code></td><td>The mean CPU use (percent of one CPU) and memory use (MB) of each of the six nodes</td></tr>
+      <tr><td><code>work_pct_exec1</code>, <code>work_pct_exec2</code>, <code>work_pct_exec3</code></td><td>How full <code>/work</code> is on each execution node, in percent</td></tr>
+      <tr><td><code>restarts_total</code></td><td>The number of times a node was restarted since the start of the run</td></tr>
+    </tbody>
+  </table>
+
+  <h3>jobs.csv</h3>
+  <table class="data wrap">
+    <thead><tr><th>Columns</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td><code>local_job_id</code></td><td>The number the monitor gives the job</td></tr>
+      <tr><td><code>baseline_job_number</code></td><td>The job number that <code>fis submit</code> printed</td></tr>
+      <tr><td><code>user</code>, <code>submit_sim_ms</code></td><td>Who submitted the job, and when</td></tr>
+      <tr><td><code>state</code>, <code>latency_ms</code></td><td><code>done</code> or <code>lost</code>, and the time from submission to <code>done</code></td></tr>
+      <tr><td><code>verdicts_correct</code>, <code>verdicts_total</code>, <code>verdicts_ambiguous</code></td><td>The output lines that were correct, the lines that were judged, and the lines that were left out because the file changed while the job was waiting or running</td></tr>
+    </tbody>
+  </table>
+
+  <h3>hostile.csv</h3>
+  <table class="data wrap">
+    <thead><tr><th>Columns</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td><code>sim_ms</code>, <code>sequence_time_s</code></td><td>When the event happened, and its planned time in the sequence</td></tr>
+      <tr><td><code>kind</code>, <code>description</code></td><td>What the event is</td></tr>
+      <tr><td><code>outcome</code></td><td><code>succeeded</code>, <code>blocked</code> or <code>error</code></td></tr>
+      <tr><td><code>evidence</code></td><td>What the monitor saw that decided the outcome</td></tr>
+    </tbody>
+  </table>
+  <p><code>summary.json</code> holds the sequence, the speed, the length of the
+  run, the totals of jobs and verdicts, the job latency of the whole run (p50,
+  p95 and mean), the hostile events and the restarts of each node.</p>
+</section>
+
+<section class="card" id="logs">
+  <h2>15. The logs</h2>
+  <p>Every node writes a log to the file <code>/logs/&lt;node&gt;.log</code> and
+  to its standard output, so <code>docker compose logs -f &lt;node&gt;</code>
+  shows it. Each line is a list of <code>key=value</code> pairs. It starts with
+  <code>ts</code>, the real time in milliseconds, and <code>node</code>, the name
+  of the node.</p>
+<pre>ts=1795363262123 node=scheduler event=job_started job=7 exec=exec1 wait_ms=96 queue=2</pre>
+  <table class="data wrap">
+    <thead><tr><th>Node</th><th>Line</th><th>Written when</th></tr></thead>
+    <tbody>
+      <tr><td>every node</td><td><code>event=node_started</code></td><td>The program starts</td></tr>
+      <tr><td>gateway, scheduler, execution nodes</td><td><code>event=call to= type= ms= ok=</code></td><td>The node finished a call to another node</td></tr>
+      <tr><td>gateway</td><td><code>event=request type= result= ms=</code></td><td>The gateway answered a request</td></tr>
+      <tr><td>scheduler</td><td><code>event=job_submitted job= user= queue=</code></td><td>A job was added to the list</td></tr>
+      <tr><td>scheduler</td><td><code>event=job_started job= exec= wait_ms= queue=</code></td><td>A job was sent to an execution node</td></tr>
+      <tr><td>scheduler</td><td><code>event=job_done job= exec= run_ms=</code></td><td>The output of a job came back</td></tr>
+      <tr><td>scheduler</td><td><code>event=node_failed exec=</code></td><td>A call to an execution node failed</td></tr>
+      <tr><td>storage</td><td><code>event=storage op= area= result= ms=</code></td><td>The storage node answered a request</td></tr>
+      <tr><td>execution</td><td><code>event=job_run job= user= ms=</code></td><td>The node finished a job</td></tr>
+      <tr><td>execution</td><td><code>event=archive_skipped job=</code></td><td>The node did not write the archived result of a job</td></tr>
+    </tbody>
+  </table>
+  <p>The times in a log (<code>ms</code>, <code>wait_ms</code>, <code>run_ms</code>)
+  are real milliseconds. The monitor multiplies them by the speed, so the
+  dashboard and the files of a run show simulated milliseconds. <code>queue</code>
+  is the number of waiting jobs.</p>
+  <p>Some charts are built from these lines, so keep the lines that the system
+  already writes. You may add your own.</p>
+</section>
+
+</article>
+</main>
+
+<footer>FIS staff monitor</footer>
+
+<script>
+  document.getElementById("theme-toggle").addEventListener("click", function () {
+    var cur = document.documentElement.getAttribute("data-theme");
+    if (!cur) {
+      cur = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    var next = cur === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("fis-theme", next); } catch (e) { /* ignore */ }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+{"name": "normal", "length_minutes": 60, "description": "Ordinary library setup plus everyday user activity: uploads, check/request jobs, bursts and a couple of employee library edits. No hostile events."}
+{"t": 2.0, "user": "emma", "do": "upload", "file": "doc-001.txt", "size_kb": 134.1, "seed": 1000, "variant": "base"}
+{"t": 3.0, "user": "emma", "do": "submit", "script": ["add doc-001.txt"], "expect": ["doc-001.txt: added"]}
+{"t": 4.8, "user": "eli", "do": "upload", "file": "doc-002.txt", "size_kb": 156.7, "seed": 1001, "variant": "base"}
+{"t": 5.8, "user": "eli", "do": "submit", "script": ["add doc-002.txt"], "expect": ["doc-002.txt: added"]}
+{"t": 7.6, "user": "emma", "do": "upload", "file": "doc-003.txt", "size_kb": 89.5, "seed": 1002, "variant": "base"}
+{"t": 8.6, "user": "emma", "do": "submit", "script": ["add doc-003.txt"], "expect": ["doc-003.txt: added"]}
+{"t": 10.399999999999999, "user": "eli", "do": "upload", "file": "doc-004.txt", "size_kb": 65.5, "seed": 1003, "variant": "base"}
+{"t": 11.399999999999999, "user": "eli", "do": "submit", "script": ["add doc-004.txt"], "expect": ["doc-004.txt: added"]}
+{"t": 13.2, "user": "emma", "do": "upload", "file": "doc-005.txt", "size_kb": 43.4, "seed": 1004, "variant": "base"}
+{"t": 14.2, "user": "emma", "do": "submit", "script": ["add doc-005.txt"], "expect": ["doc-005.txt: added"]}
+{"t": 16.0, "user": "eli", "do": "upload", "file": "doc-006.txt", "size_kb": 33.6, "seed": 1005, "variant": "base"}
+{"t": 17.0, "user": "eli", "do": "submit", "script": ["add doc-006.txt"], "expect": ["doc-006.txt: added"]}
+{"t": 18.8, "user": "emma", "do": "upload", "file": "doc-007.txt", "size_kb": 288.0, "seed": 1006, "variant": "base"}
+{"t": 19.8, "user": "emma", "do": "submit", "script": ["add doc-007.txt"], "expect": ["doc-007.txt: added"]}
+{"t": 21.6, "user": "eli", "do": "upload", "file": "doc-008.txt", "size_kb": 41.9, "seed": 1007, "variant": "base"}
+{"t": 22.6, "user": "eli", "do": "submit", "script": ["add doc-008.txt"], "expect": ["doc-008.txt: added"]}
+{"t": 24.400000000000002, "user": "emma", "do": "upload", "file": "doc-009.txt", "size_kb": 39.6, "seed": 1008, "variant": "base"}
+{"t": 25.400000000000002, "user": "emma", "do": "submit", "script": ["add doc-009.txt"], "expect": ["doc-009.txt: added"]}
+{"t": 27.200000000000003, "user": "eli", "do": "upload", "file": "doc-010.txt", "size_kb": 66.8, "seed": 1009, "variant": "base"}
+{"t": 28.200000000000003, "user": "eli", "do": "submit", "script": ["add doc-010.txt"], "expect": ["doc-010.txt: added"]}
+{"t": 30.000000000000004, "user": "emma", "do": "upload", "file": "doc-011.txt", "size_kb": 141.2, "seed": 1010, "variant": "base"}
+{"t": 31.000000000000004, "user": "emma", "do": "submit", "script": ["add doc-011.txt"], "expect": ["doc-011.txt: added"]}
+{"t": 32.800000000000004, "user": "eli", "do": "upload", "file": "doc-012.txt", "size_kb": 256.0, "seed": 1011, "variant": "base"}
+{"t": 33.800000000000004, "user": "eli", "do": "submit", "script": ["add doc-012.txt"], "expect": ["doc-012.txt: added"]}
+{"t": 35.6, "user": "emma", "do": "upload", "file": "doc-013.txt", "size_kb": 48.7, "seed": 1012, "variant": "base"}
+{"t": 36.6, "user": "emma", "do": "submit", "script": ["add doc-013.txt"], "expect": ["doc-013.txt: added"]}
+{"t": 38.4, "user": "eli", "do": "upload", "file": "doc-014.txt", "size_kb": 197.9, "seed": 1013, "variant": "base"}
+{"t": 39.4, "user": "eli", "do": "submit", "script": ["add doc-014.txt"], "expect": ["doc-014.txt: added"]}
+{"t": 41.199999999999996, "user": "emma", "do": "upload", "file": "doc-015.txt", "size_kb": 91.1, "seed": 1014, "variant": "base"}
+{"t": 42.199999999999996, "user": "emma", "do": "submit", "script": ["add doc-015.txt"], "expect": ["doc-015.txt: added"]}
+{"t": 43.99999999999999, "user": "eli", "do": "upload", "file": "doc-016.txt", "size_kb": 91.1, "seed": 1015, "variant": "base"}
+{"t": 44.99999999999999, "user": "eli", "do": "submit", "script": ["add doc-016.txt"], "expect": ["doc-016.txt: added"]}
+{"t": 46.79999999999999, "user": "emma", "do": "upload", "file": "doc-017.txt", "size_kb": 36.6, "seed": 1016, "variant": "base"}
+{"t": 47.79999999999999, "user": "emma", "do": "submit", "script": ["add doc-017.txt"], "expect": ["doc-017.txt: added"]}
+{"t": 49.59999999999999, "user": "eli", "do": "upload", "file": "doc-018.txt", "size_kb": 105.1, "seed": 1017, "variant": "base"}
+{"t": 50.59999999999999, "user": "eli", "do": "submit", "script": ["add doc-018.txt"], "expect": ["doc-018.txt: added"]}
+{"t": 52.399999999999984, "user": "emma", "do": "upload", "file": "doc-019.txt", "size_kb": 272.4, "seed": 1018, "variant": "base"}
+{"t": 53.399999999999984, "user": "emma", "do": "submit", "script": ["add doc-019.txt"], "expect": ["doc-019.txt: added"]}
+{"t": 55.19999999999998, "user": "eli", "do": "upload", "file": "doc-020.txt", "size_kb": 121.6, "seed": 1019, "variant": "base"}
+{"t": 56.19999999999998, "user": "eli", "do": "submit", "script": ["add doc-020.txt"], "expect": ["doc-020.txt: added"]}
+{"t": 57.99999999999998, "user": "emma", "do": "upload", "file": "doc-021.txt", "size_kb": 95.8, "seed": 1020, "variant": "base"}
+{"t": 58.99999999999998, "user": "emma", "do": "submit", "script": ["add doc-021.txt"], "expect": ["doc-021.txt: added"]}
+{"t": 60.799999999999976, "user": "eli", "do": "upload", "file": "doc-022.txt", "size_kb": 207.6, "seed": 1021, "variant": "base"}
+{"t": 61.799999999999976, "user": "eli", "do": "submit", "script": ["add doc-022.txt"], "expect": ["doc-022.txt: added"]}
+{"t": 63.59999999999997, "user": "emma", "do": "upload", "file": "doc-023.txt", "size_kb": 111.8, "seed": 1022, "variant": "base"}
+{"t": 64.59999999999997, "user": "emma", "do": "submit", "script": ["add doc-023.txt"], "expect": ["doc-023.txt: added"]}
+{"t": 66.39999999999998, "user": "eli", "do": "upload", "file": "doc-024.txt", "size_kb": 233.3, "seed": 1023, "variant": "base"}
+{"t": 67.39999999999998, "user": "eli", "do": "submit", "script": ["add doc-024.txt"], "expect": ["doc-024.txt: added"]}
+{"t": 69.19999999999997, "user": "emma", "do": "upload", "file": "doc-025.txt", "size_kb": 177.6, "seed": 1024, "variant": "base"}
+{"t": 70.19999999999997, "user": "emma", "do": "submit", "script": ["add doc-025.txt"], "expect": ["doc-025.txt: added"]}
+{"t": 71.99999999999997, "user": "eli", "do": "upload", "file": "doc-026.txt", "size_kb": 107.2, "seed": 1025, "variant": "base"}
+{"t": 72.99999999999997, "user": "eli", "do": "submit", "script": ["add doc-026.txt"], "expect": ["doc-026.txt: added"]}
+{"t": 74.79999999999997, "user": "emma", "do": "upload", "file": "doc-027.txt", "size_kb": 131.0, "seed": 1026, "variant": "base"}
+{"t": 75.79999999999997, "user": "emma", "do": "submit", "script": ["add doc-027.txt"], "expect": ["doc-027.txt: added"]}
+{"t": 77.59999999999997, "user": "eli", "do": "upload", "file": "doc-028.txt", "size_kb": 18.2, "seed": 1027, "variant": "base"}
+{"t": 78.59999999999997, "user": "eli", "do": "submit", "script": ["add doc-028.txt"], "expect": ["doc-028.txt: added"]}
+{"t": 80.39999999999996, "user": "emma", "do": "upload", "file": "doc-029.txt", "size_kb": 127.6, "seed": 1028, "variant": "base"}
+{"t": 81.39999999999996, "user": "emma", "do": "submit", "script": ["add doc-029.txt"], "expect": ["doc-029.txt: added"]}
+{"t": 83.19999999999996, "user": "eli", "do": "upload", "file": "doc-030.txt", "size_kb": 15.1, "seed": 1029, "variant": "base"}
+{"t": 84.19999999999996, "user": "eli", "do": "submit", "script": ["add doc-030.txt"], "expect": ["doc-030.txt: added"]}
+{"t": 85.99999999999996, "user": "emma", "do": "upload", "file": "doc-031.txt", "size_kb": 260.6, "seed": 1030, "variant": "base"}
+{"t": 86.99999999999996, "user": "emma", "do": "submit", "script": ["add doc-031.txt"], "expect": ["doc-031.txt: added"]}
+{"t": 88.79999999999995, "user": "eli", "do": "upload", "file": "doc-032.txt", "size_kb": 158.2, "seed": 1031, "variant": "base"}
+{"t": 89.79999999999995, "user": "eli", "do": "submit", "script": ["add doc-032.txt"], "expect": ["doc-032.txt: added"]}
+{"t": 91.59999999999995, "user": "emma", "do": "upload", "file": "doc-033.txt", "size_kb": 249.0, "seed": 1032, "variant": "base"}
+{"t": 92.59999999999995, "user": "emma", "do": "submit", "script": ["add doc-033.txt"], "expect": ["doc-033.txt: added"]}
+{"t": 94.39999999999995, "user": "eli", "do": "upload", "file": "doc-034.txt", "size_kb": 138.8, "seed": 1033, "variant": "base"}
+{"t": 95.39999999999995, "user": "eli", "do": "submit", "script": ["add doc-034.txt"], "expect": ["doc-034.txt: added"]}
+{"t": 97.19999999999995, "user": "emma", "do": "upload", "file": "doc-035.txt", "size_kb": 295.9, "seed": 1034, "variant": "base"}
+{"t": 98.19999999999995, "user": "emma", "do": "submit", "script": ["add doc-035.txt"], "expect": ["doc-035.txt: added"]}
+{"t": 99.99999999999994, "user": "eli", "do": "upload", "file": "doc-036.txt", "size_kb": 83.3, "seed": 1035, "variant": "base"}
+{"t": 100.99999999999994, "user": "eli", "do": "submit", "script": ["add doc-036.txt"], "expect": ["doc-036.txt: added"]}
+{"t": 102.79999999999994, "user": "emma", "do": "upload", "file": "doc-037.txt", "size_kb": 192.4, "seed": 1036, "variant": "base"}
+{"t": 103.79999999999994, "user": "emma", "do": "submit", "script": ["add doc-037.txt"], "expect": ["doc-037.txt: added"]}
+{"t": 105.59999999999994, "user": "eli", "do": "upload", "file": "doc-038.txt", "size_kb": 3.0, "seed": 1037, "variant": "base"}
+{"t": 106.59999999999994, "user": "eli", "do": "submit", "script": ["add doc-038.txt"], "expect": ["doc-038.txt: added"]}
+{"t": 108.39999999999993, "user": "emma", "do": "upload", "file": "doc-039.txt", "size_kb": 173.6, "seed": 1038, "variant": "base"}
+{"t": 109.39999999999993, "user": "emma", "do": "submit", "script": ["add doc-039.txt"], "expect": ["doc-039.txt: added"]}
+{"t": 111.19999999999993, "user": "eli", "do": "upload", "file": "doc-040.txt", "size_kb": 291.9, "seed": 1039, "variant": "base"}
+{"t": 112.19999999999993, "user": "eli", "do": "submit", "script": ["add doc-040.txt"], "expect": ["doc-040.txt: added"]}
+{"t": 113.99999999999993, "user": "emma", "do": "upload", "file": "doc-041.txt", "size_kb": 13.6, "seed": 1040, "variant": "base"}
+{"t": 114.99999999999993, "user": "emma", "do": "submit", "script": ["add doc-041.txt"], "expect": ["doc-041.txt: added"]}
+{"t": 116.79999999999993, "user": "eli", "do": "upload", "file": "doc-042.txt", "size_kb": 93.6, "seed": 1041, "variant": "base"}
+{"t": 117.79999999999993, "user": "eli", "do": "submit", "script": ["add doc-042.txt"], "expect": ["doc-042.txt: added"]}
+{"t": 119.59999999999992, "user": "emma", "do": "upload", "file": "doc-043.txt", "size_kb": 282.2, "seed": 1042, "variant": "base"}
+{"t": 120.59999999999992, "user": "emma", "do": "submit", "script": ["add doc-043.txt"], "expect": ["doc-043.txt: added"]}
+{"t": 122.39999999999992, "user": "eli", "do": "upload", "file": "doc-044.txt", "size_kb": 62.6, "seed": 1043, "variant": "base"}
+{"t": 123.39999999999992, "user": "eli", "do": "submit", "script": ["add doc-044.txt"], "expect": ["doc-044.txt: added"]}
+{"t": 125.19999999999992, "user": "emma", "do": "upload", "file": "doc-045.txt", "size_kb": 52.8, "seed": 1044, "variant": "base"}
+{"t": 126.19999999999992, "user": "emma", "do": "submit", "script": ["add doc-045.txt"], "expect": ["doc-045.txt: added"]}
+{"t": 127.99999999999991, "user": "eli", "do": "upload", "file": "doc-046.txt", "size_kb": 247.2, "seed": 1045, "variant": "base"}
+{"t": 128.99999999999991, "user": "eli", "do": "submit", "script": ["add doc-046.txt"], "expect": ["doc-046.txt: added"]}
+{"t": 130.79999999999993, "user": "emma", "do": "upload", "file": "doc-047.txt", "size_kb": 48.0, "seed": 1046, "variant": "base"}
+{"t": 131.79999999999993, "user": "emma", "do": "submit", "script": ["add doc-047.txt"], "expect": ["doc-047.txt: added"]}
+{"t": 133.59999999999994, "user": "eli", "do": "upload", "file": "doc-048.txt", "size_kb": 237.1, "seed": 1047, "variant": "base"}
+{"t": 134.59999999999994, "user": "eli", "do": "submit", "script": ["add doc-048.txt"], "expect": ["doc-048.txt: added"]}
+{"t": 136.39999999999995, "user": "emma", "do": "upload", "file": "doc-049.txt", "size_kb": 86.3, "seed": 1048, "variant": "base"}
+{"t": 137.39999999999995, "user": "emma", "do": "submit", "script": ["add doc-049.txt"], "expect": ["doc-049.txt: added"]}
+{"t": 139.19999999999996, "user": "eli", "do": "upload", "file": "doc-050.txt", "size_kb": 102.4, "seed": 1049, "variant": "base"}
+{"t": 140.19999999999996, "user": "eli", "do": "submit", "script": ["add doc-050.txt"], "expect": ["doc-050.txt: added"]}
+{"t": 141.99999999999997, "user": "emma", "do": "upload", "file": "doc-051.txt", "size_kb": 40.7, "seed": 1050, "variant": "base"}
+{"t": 142.99999999999997, "user": "emma", "do": "submit", "script": ["add doc-051.txt"], "expect": ["doc-051.txt: added"]}
+{"t": 144.79999999999998, "user": "eli", "do": "upload", "file": "doc-052.txt", "size_kb": 15.8, "seed": 1051, "variant": "base"}
+{"t": 145.79999999999998, "user": "eli", "do": "submit", "script": ["add doc-052.txt"], "expect": ["doc-052.txt: added"]}
+{"t": 147.6, "user": "emma", "do": "upload", "file": "doc-053.txt", "size_kb": 234.8, "seed": 1052, "variant": "base"}
+{"t": 148.6, "user": "emma", "do": "submit", "script": ["add doc-053.txt"], "expect": ["doc-053.txt: added"]}
+{"t": 150.4, "user": "eli", "do": "upload", "file": "doc-054.txt", "size_kb": 79.1, "seed": 1053, "variant": "base"}
+{"t": 151.4, "user": "eli", "do": "submit", "script": ["add doc-054.txt"], "expect": ["doc-054.txt: added"]}
+{"t": 153.20000000000002, "user": "emma", "do": "upload", "file": "doc-055.txt", "size_kb": 84.3, "seed": 1054, "variant": "base"}
+{"t": 154.20000000000002, "user": "emma", "do": "submit", "script": ["add doc-055.txt"], "expect": ["doc-055.txt: added"]}
+{"t": 156.00000000000003, "user": "eli", "do": "upload", "file": "doc-056.txt", "size_kb": 24.1, "seed": 1055, "variant": "base"}
+{"t": 157.00000000000003, "user": "eli", "do": "submit", "script": ["add doc-056.txt"], "expect": ["doc-056.txt: added"]}
+{"t": 158.80000000000004, "user": "emma", "do": "upload", "file": "doc-057.txt", "size_kb": 217.6, "seed": 1056, "variant": "base"}
+{"t": 159.80000000000004, "user": "emma", "do": "submit", "script": ["add doc-057.txt"], "expect": ["doc-057.txt: added"]}
+{"t": 161.60000000000005, "user": "eli", "do": "upload", "file": "doc-058.txt", "size_kb": 276.9, "seed": 1057, "variant": "base"}
+{"t": 162.60000000000005, "user": "eli", "do": "submit", "script": ["add doc-058.txt"], "expect": ["doc-058.txt: added"]}
+{"t": 164.40000000000006, "user": "emma", "do": "upload", "file": "doc-059.txt", "size_kb": 19.5, "seed": 1058, "variant": "base"}
+{"t": 165.40000000000006, "user": "emma", "do": "submit", "script": ["add doc-059.txt"], "expect": ["doc-059.txt: added"]}
+{"t": 167.20000000000007, "user": "eli", "do": "upload", "file": "doc-060.txt", "size_kb": 83.9, "seed": 1059, "variant": "base"}
+{"t": 168.20000000000007, "user": "eli", "do": "submit", "script": ["add doc-060.txt"], "expect": ["doc-060.txt: added"]}
+{"t": 236.0, "user": "grace", "do": "upload", "file": "doc-030.txt", "size_kb": 15.1, "seed": 1029, "variant": "copy"}
+{"t": 237.21130316483254, "user": "grace", "do": "upload", "file": "doc-006.txt", "size_kb": 33.6, "seed": 1005, "variant": "tampered"}
+{"t": 242.0, "user": "grace", "do": "upload", "file": "doc-009.txt", "size_kb": 39.6, "seed": 1008, "variant": "tampered"}
+{"t": 244.93212346798137, "user": "grace", "do": "upload", "file": "doc-051.txt", "size_kb": 40.7, "seed": 1050, "variant": "copy"}
+{"t": 247.87755526114267, "user": "grace", "do": "upload", "file": "doc-010.txt", "size_kb": 66.8, "seed": 1009, "variant": "copy"}
+{"t": 274.7093223969573, "user": "grace", "do": "submit", "script": ["check doc-030.txt", "check doc-006.txt", "check doc-022.txt"], "expect": ["doc-030.txt: intact", "doc-006.txt: modified", "doc-022.txt: not uploaded"]}
+{"t": 281.369245626672, "user": "grace", "do": "request", "file": "doc-016.txt"}
+{"t": 292.50182562141157, "user": "grace", "do": "submit", "script": ["check doc-009.txt", "check doc-051.txt", "check doc-010.txt", "check doc-039.txt"], "expect": ["doc-009.txt: modified", "doc-051.txt: intact", "doc-010.txt: intact", "doc-039.txt: not uploaded"]}
+{"t": 298.10123387255595, "user": "grace", "do": "request", "file": "doc-044.txt"}
+{"t": 320.0, "user": "frank", "do": "upload", "file": "doc-004.txt", "size_kb": 65.5, "seed": 1003, "variant": "copy"}
+{"t": 322.7781201400073, "user": "frank", "do": "upload", "file": "doc-007.txt", "size_kb": 288.0, "seed": 1006, "variant": "copy"}
+{"t": 323.8387810714024, "user": "frank", "do": "upload", "file": "notes-frank-0.txt", "size_kb": 36.4, "seed": 47186, "variant": "private"}
+{"t": 330.0, "user": "alice", "do": "upload", "file": "doc-001.txt", "size_kb": 134.1, "seed": 1000, "variant": "tampered"}
+{"t": 331.02559829472756, "user": "alice", "do": "upload", "file": "doc-014.txt", "size_kb": 197.9, "seed": 1013, "variant": "copy"}
+{"t": 355.0, "user": "carol", "do": "upload", "file": "doc-033.txt", "size_kb": 249.0, "seed": 1032, "variant": "copy"}
+{"t": 356.8801672572752, "user": "carol", "do": "upload", "file": "doc-045.txt", "size_kb": 52.8, "seed": 1044, "variant": "copy"}
+{"t": 358.4310688403306, "user": "carol", "do": "upload", "file": "notes-carol-0.txt", "size_kb": 39.5, "seed": 47767, "variant": "private"}
+{"t": 360.0, "user": "carol", "do": "upload", "file": "doc-024.txt", "size_kb": 233.3, "seed": 1023, "variant": "copy"}
+{"t": 360.3, "user": "alice", "do": "upload", "file": "doc-036.txt", "size_kb": 83.3, "seed": 1035, "variant": "copy"}
+{"t": 360.6, "user": "frank", "do": "upload", "file": "doc-036.txt", "size_kb": 83.3, "seed": 1035, "variant": "tampered"}
+{"t": 360.9, "user": "bob", "do": "upload", "file": "doc-004.txt", "size_kb": 65.5, "seed": 1003, "variant": "tampered"}
+{"t": 361.9113373955463, "user": "alice", "do": "upload", "file": "doc-037.txt", "size_kb": 192.4, "seed": 1036, "variant": "copy"}
+{"t": 362.03411372078233, "user": "frank", "do": "upload", "file": "notes-frank-3.txt", "size_kb": 32.9, "seed": 79602, "variant": "private"}
+{"t": 362.64999727847345, "user": "carol", "do": "upload", "file": "doc-032.txt", "size_kb": 158.2, "seed": 1031, "variant": "copy"}
+{"t": 363.4981695199059, "user": "bob", "do": "upload", "file": "doc-022.txt", "size_kb": 207.6, "seed": 1021, "variant": "copy"}
+{"t": 364.0495793866677, "user": "alice", "do": "upload", "file": "doc-002.txt", "size_kb": 156.7, "seed": 1001, "variant": "copy"}
+{"t": 365.0521937220924, "user": "bob", "do": "upload", "file": "doc-036.txt", "size_kb": 83.3, "seed": 1035, "variant": "tampered"}
+{"t": 365.6022377975428, "user": "carol", "do": "upload", "file": "doc-022.txt", "size_kb": 207.6, "seed": 1021, "variant": "tampered"}
+{"t": 366.2002619025851, "user": "alice", "do": "upload", "file": "notes-alice-3.txt", "size_kb": 16.5, "seed": 93339, "variant": "private"}
+{"t": 368.4554149665143, "user": "carol", "do": "upload", "file": "notes-carol-6.txt", "size_kb": 3.1, "seed": 88976, "variant": "private"}
+{"t": 370.309612965232, "user": "frank", "do": "submit", "script": ["check doc-004.txt", "check doc-007.txt", "check notes-frank-0.txt", "check doc-030.txt"], "expect": ["doc-004.txt: intact", "doc-007.txt: intact", "notes-frank-0.txt: not in library", "doc-030.txt: not uploaded"]}
+{"t": 377.7737940140126, "user": "alice", "do": "submit", "script": ["check doc-001.txt", "check doc-014.txt", "check doc-037.txt"], "expect": ["doc-001.txt: modified", "doc-014.txt: intact", "doc-037.txt: intact"]}
+{"t": 382.1130652231564, "user": "frank", "do": "request", "file": "doc-052.txt"}
+{"t": 392.4355339835347, "user": "alice", "do": "request", "file": "doc-036.txt"}
+{"t": 394.34447594799985, "user": "carol", "do": "submit", "script": ["check doc-033.txt", "check doc-045.txt", "check notes-carol-0.txt", "check doc-054.txt"], "expect": ["doc-033.txt: intact", "doc-045.txt: intact", "notes-carol-0.txt: not in library", "doc-054.txt: not uploaded"]}
+{"t": 401.05012079575505, "user": "carol", "do": "request", "file": "doc-001.txt"}
+{"t": 401.0575475847088, "user": "alice", "do": "submit", "script": ["check doc-036.txt", "check doc-037.txt", "check doc-002.txt", "check notes-alice-3.txt", "check doc-035.txt"], "expect": ["doc-036.txt: intact", "doc-037.txt: intact", "doc-002.txt: intact", "notes-alice-3.txt: not in library", "doc-035.txt: not uploaded"]}
+{"t": 401.18372811454503, "user": "carol", "do": "submit", "script": ["check doc-024.txt", "check doc-032.txt", "check doc-022.txt", "check notes-carol-6.txt", "check doc-019.txt"], "expect": ["doc-024.txt: intact", "doc-032.txt: intact", "doc-022.txt: modified", "notes-carol-6.txt: not in library", "doc-019.txt: not uploaded"]}
+{"t": 403.0, "user": "dave", "do": "upload", "file": "doc-034.txt", "size_kb": 138.8, "seed": 1033, "variant": "tampered"}
+{"t": 404.59695993365364, "user": "frank", "do": "submit", "script": ["check doc-036.txt", "check notes-frank-3.txt", "check doc-034.txt"], "expect": ["doc-036.txt: modified", "notes-frank-3.txt: not in library", "doc-034.txt: not uploaded"]}
+{"t": 405.1241945085427, "user": "dave", "do": "upload", "file": "doc-014.txt", "size_kb": 197.9, "seed": 1013, "variant": "copy"}
+{"t": 406.17621151438806, "user": "dave", "do": "upload", "file": "doc-052.txt", "size_kb": 15.8, "seed": 1051, "variant": "tampered"}
+{"t": 407.93358475441465, "user": "bob", "do": "submit", "script": ["check doc-004.txt", "check doc-022.txt", "check doc-036.txt", "check doc-011.txt"], "expect": ["doc-004.txt: modified", "doc-022.txt: intact", "doc-036.txt: modified", "doc-011.txt: not uploaded"]}
+{"t": 408.3683921775087, "user": "dave", "do": "upload", "file": "notes-dave-0.txt", "size_kb": 43.1, "seed": 104007, "variant": "private"}
+{"t": 410.38875332080806, "user": "alice", "do": "request", "file": "doc-007.txt"}
+{"t": 413.0, "user": "alice", "do": "upload", "file": "doc-021.txt", "size_kb": 95.8, "seed": 1020, "variant": "copy"}
+{"t": 414.2084907869516, "user": "alice", "do": "upload", "file": "doc-038.txt", "size_kb": 3.0, "seed": 1037, "variant": "copy"}
+{"t": 415.37886247531196, "user": "frank", "do": "request", "file": "doc-047.txt"}
+{"t": 415.6030460885366, "user": "bob", "do": "request", "file": "doc-002.txt"}
+{"t": 417.0, "user": "alice", "do": "upload", "file": "doc-022.txt", "size_kb": 207.6, "seed": 1021, "variant": "copy"}
+{"t": 417.1589582104893, "user": "alice", "do": "upload", "file": "notes-alice-0.txt", "size_kb": 23.4, "seed": 43451, "variant": "private"}
+{"t": 419.7960722892319, "user": "alice", "do": "upload", "file": "doc-032.txt", "size_kb": 158.2, "seed": 1031, "variant": "copy"}
+{"t": 422.0911276869552, "user": "alice", "do": "upload", "file": "doc-042.txt", "size_kb": 93.6, "seed": 1041, "variant": "tampered"}
+{"t": 436.0, "user": "grace", "do": "upload", "file": "doc-021.txt", "size_kb": 95.8, "seed": 1020, "variant": "tampered"}
+{"t": 437.6204675820618, "user": "grace", "do": "upload", "file": "doc-004.txt", "size_kb": 65.5, "seed": 1003, "variant": "copy"}
+{"t": 439.88585431026564, "user": "grace", "do": "upload", "file": "doc-024.txt", "size_kb": 233.3, "seed": 1023, "variant": "copy"}
+{"t": 442.8391642866988, "user": "grace", "do": "upload", "file": "notes-grace-0.txt", "size_kb": 37.5, "seed": 42605, "variant": "private"}
+{"t": 448.89624148484063, "user": "dave", "do": "submit", "script": ["check doc-034.txt", "check doc-014.txt", "check doc-052.txt", "check notes-dave-0.txt", "check doc-046.txt"], "expect": ["doc-034.txt: modified", "doc-014.txt: intact", "doc-052.txt: modified", "notes-dave-0.txt: not in library", "doc-046.txt: not uploaded"]}
+{"t": 450.81653325389107, "user": "alice", "do": "submit", "script": ["check doc-021.txt", "check doc-038.txt", "check notes-alice-0.txt", "check doc-025.txt"], "expect": ["doc-021.txt: intact", "doc-038.txt: intact", "notes-alice-0.txt: not in library", "doc-025.txt: not uploaded"]}
+{"t": 451.0, "user": "bob", "do": "upload", "file": "doc-042.txt", "size_kb": 93.6, "seed": 1041, "variant": "copy"}
+{"t": 452.6789892678078, "user": "bob", "do": "upload", "file": "notes-bob-0.txt", "size_kb": 36.4, "seed": 30294, "variant": "private"}
+{"t": 456.755496740825, "user": "dave", "do": "request", "file": "doc-010.txt"}
+{"t": 459.0, "user": "frank", "do": "upload", "file": "doc-003.txt", "size_kb": 89.5, "seed": 1002, "variant": "copy"}
+{"t": 460.47295362286144, "user": "alice", "do": "submit", "script": ["check doc-022.txt", "check doc-032.txt", "check doc-042.txt", "check doc-033.txt"], "expect": ["doc-022.txt: intact", "doc-032.txt: intact", "doc-042.txt: modified", "doc-033.txt: not uploaded"]}
+{"t": 460.5302352032042, "user": "frank", "do": "upload", "file": "doc-021.txt", "size_kb": 95.8, "seed": 1020, "variant": "tampered"}
+{"t": 461.0, "user": "dave", "do": "upload", "file": "doc-039.txt", "size_kb": 173.6, "seed": 1038, "variant": "tampered"}
+{"t": 462.40438738855244, "user": "dave", "do": "upload", "file": "notes-dave-1.txt", "size_kb": 35.6, "seed": 42348, "variant": "private"}
+{"t": 462.9883179291536, "user": "frank", "do": "upload", "file": "doc-035.txt", "size_kb": 295.9, "seed": 1034, "variant": "copy"}
+{"t": 464.6195497054573, "user": "alice", "do": "request", "file": "doc-040.txt"}
+{"t": 483.549626297209, "user": "grace", "do": "submit", "script": ["check doc-021.txt", "check doc-004.txt", "check doc-024.txt", "check notes-grace-0.txt", "check doc-042.txt"], "expect": ["doc-021.txt: modified", "doc-004.txt: intact", "doc-024.txt: intact", "notes-grace-0.txt: not in library", "doc-042.txt: not uploaded"]}
+{"t": 485.1440562973728, "user": "bob", "do": "submit", "script": ["check doc-042.txt", "check notes-bob-0.txt", "check doc-022.txt"], "expect": ["doc-042.txt: intact", "notes-bob-0.txt: not in library", "doc-022.txt: intact"]}
+{"t": 488.84267304886083, "user": "grace", "do": "request", "file": "doc-040.txt"}
+{"t": 499.1186826915306, "user": "dave", "do": "submit", "script": ["check doc-039.txt", "check notes-dave-1.txt", "check doc-015.txt"], "expect": ["doc-039.txt: modified", "notes-dave-1.txt: not in library", "doc-015.txt: not uploaded"]}
+{"t": 504.91740240852096, "user": "frank", "do": "submit", "script": ["check doc-003.txt", "check doc-021.txt", "check doc-035.txt", "check doc-052.txt"], "expect": ["doc-003.txt: intact", "doc-021.txt: modified", "doc-035.txt: intact", "doc-052.txt: not uploaded"]}
+{"t": 511.1230648269028, "user": "dave", "do": "request", "file": "doc-053.txt"}
+{"t": 518.6009136600662, "user": "frank", "do": "request", "file": "doc-038.txt"}
+{"t": 534.0, "user": "bob", "do": "upload", "file": "doc-013.txt", "size_kb": 48.7, "seed": 1012, "variant": "copy"}
+{"t": 536.2457458928292, "user": "bob", "do": "upload", "file": "doc-004.txt", "size_kb": 65.5, "seed": 1003, "variant": "copy"}
+{"t": 538.2251976879737, "user": "bob", "do": "upload", "file": "doc-026.txt", "size_kb": 107.2, "seed": 1025, "variant": "copy"}
+{"t": 540.9777318185619, "user": "bob", "do": "upload", "file": "notes-bob-1.txt", "size_kb": 2.8, "seed": 96324, "variant": "private"}
+{"t": 555.0, "user": "grace", "do": "upload", "file": "doc-052.txt", "size_kb": 15.8, "seed": 1051, "variant": "tampered"}
+{"t": 556.2002975507122, "user": "grace", "do": "upload", "file": "doc-031.txt", "size_kb": 260.6, "seed": 1030, "variant": "copy"}
+{"t": 558.7930616551849, "user": "grace", "do": "upload", "file": "doc-006.txt", "size_kb": 33.6, "seed": 1005, "variant": "copy"}
+{"t": 576.3344844377332, "user": "bob", "do": "submit", "script": ["check doc-013.txt", "check doc-004.txt", "check doc-026.txt", "check notes-bob-1.txt", "check doc-032.txt"], "expect": ["doc-013.txt: intact", "doc-004.txt: intact", "doc-026.txt: intact", "notes-bob-1.txt: not in library", "doc-032.txt: not uploaded"]}
+{"t": 583.6773741602067, "user": "bob", "do": "request", "file": "doc-024.txt"}
+{"t": 595.4028027508452, "user": "grace", "do": "submit", "script": ["check doc-052.txt", "check doc-031.txt", "check doc-006.txt", "check doc-020.txt"], "expect": ["doc-052.txt: modified", "doc-031.txt: intact", "doc-006.txt: intact", "doc-020.txt: not uploaded"]}
+{"t": 607.2674913596816, "user": "grace", "do": "request", "file": "doc-022.txt"}
+{"t": 694.0, "user": "alice", "do": "upload", "file": "doc-054.txt", "size_kb": 79.1, "seed": 1053, "variant": "tampered"}
+{"t": 696.4018340413932, "user": "alice", "do": "upload", "file": "doc-027.txt", "size_kb": 131.0, "seed": 1026, "variant": "copy"}
+{"t": 698.0949570486662, "user": "alice", "do": "upload", "file": "doc-012.txt", "size_kb": 256.0, "seed": 1011, "variant": "tampered"}
+{"t": 700.0, "user": "alice", "do": "upload", "file": "bulk-alice-8.txt", "size_kb": 271.0, "seed": 102021, "variant": "private"}
+{"t": 700.7507711452671, "user": "alice", "do": "upload", "file": "notes-alice-1.txt", "size_kb": 26.1, "seed": 29358, "variant": "private"}
+{"t": 731.4338375317435, "user": "alice", "do": "submit", "script": ["check bulk-alice-8.txt", "check doc-024.txt"], "expect": ["bulk-alice-8.txt: not in library", "doc-024.txt: not uploaded"]}
+{"t": 736.0513976019743, "user": "alice", "do": "submit", "script": ["check doc-054.txt", "check doc-027.txt", "check doc-012.txt", "check notes-alice-1.txt", "check doc-041.txt"], "expect": ["doc-054.txt: modified", "doc-027.txt: intact", "doc-012.txt: modified", "notes-alice-1.txt: not in library", "doc-041.txt: not uploaded"]}
+{"t": 744.9787535450084, "user": "alice", "do": "request", "file": "doc-027.txt"}
+{"t": 754.0, "user": "alice", "do": "upload", "file": "doc-002.txt", "size_kb": 156.7, "seed": 1001, "variant": "copy"}
+{"t": 756.4446440366829, "user": "alice", "do": "upload", "file": "doc-046.txt", "size_kb": 247.2, "seed": 1045, "variant": "copy"}
+{"t": 789.1657029048553, "user": "alice", "do": "submit", "script": ["check doc-002.txt", "check doc-046.txt", "check doc-010.txt"], "expect": ["doc-002.txt: intact", "doc-046.txt: intact", "doc-010.txt: not uploaded"]}
+{"t": 900.0, "user": "grace", "do": "upload", "file": "doc-005.txt", "size_kb": 43.4, "seed": 1004, "variant": "tampered"}
+{"t": 900.3, "user": "bob", "do": "upload", "file": "doc-019.txt", "size_kb": 272.4, "seed": 1018, "variant": "copy"}
+{"t": 900.6, "user": "dave", "do": "upload", "file": "doc-014.txt", "size_kb": 197.9, "seed": 1013, "variant": "tampered"}
+{"t": 900.9, "user": "frank", "do": "upload", "file": "doc-010.txt", "size_kb": 66.8, "seed": 1009, "variant": "copy"}
+{"t": 902.0867739566652, "user": "dave", "do": "upload", "file": "doc-003.txt", "size_kb": 89.5, "seed": 1002, "variant": "copy"}
+{"t": 902.3375145039837, "user": "frank", "do": "upload", "file": "doc-052.txt", "size_kb": 15.8, "seed": 1051, "variant": "copy"}
+{"t": 902.742240296919, "user": "bob", "do": "upload", "file": "doc-050.txt", "size_kb": 102.4, "seed": 1049, "variant": "tampered"}
+{"t": 903.5656924605333, "user": "dave", "do": "upload", "file": "doc-038.txt", "size_kb": 3.0, "seed": 1037, "variant": "tampered"}
+{"t": 904.4545960973135, "user": "frank", "do": "upload", "file": "notes-frank-4.txt", "size_kb": 31.9, "seed": 105179, "variant": "private"}
+{"t": 904.6405804776446, "user": "bob", "do": "upload", "file": "doc-037.txt", "size_kb": 192.4, "seed": 1036, "variant": "copy"}
+{"t": 915.0, "user": "dave", "do": "upload", "file": "doc-051.txt", "size_kb": 40.7, "seed": 1050, "variant": "tampered"}
+{"t": 916.3341217019754, "user": "dave", "do": "upload", "file": "doc-043.txt", "size_kb": 282.2, "seed": 1042, "variant": "copy"}
+{"t": 919.0819702376026, "user": "dave", "do": "upload", "file": "notes-dave-2.txt", "size_kb": 29.4, "seed": 83557, "variant": "private"}
+{"t": 937.6706237499577, "user": "grace", "do": "submit", "script": ["check doc-005.txt", "check doc-028.txt"], "expect": ["doc-005.txt: modified", "doc-028.txt: not uploaded"]}
+{"t": 939.2146382690722, "user": "bob", "do": "submit", "script": ["check doc-019.txt", "check doc-050.txt", "check doc-037.txt", "check doc-029.txt"], "expect": ["doc-019.txt: intact", "doc-050.txt: modified", "doc-037.txt: intact", "doc-029.txt: not uploaded"]}
+{"t": 943.1148552523314, "user": "grace", "do": "request", "file": "doc-010.txt"}
+{"t": 943.9591545354566, "user": "dave", "do": "submit", "script": ["check doc-014.txt", "check doc-003.txt", "check doc-038.txt", "check doc-053.txt"], "expect": ["doc-014.txt: modified", "doc-003.txt: intact", "doc-038.txt: modified", "doc-053.txt: not uploaded"]}
+{"t": 946.9393034669234, "user": "frank", "do": "submit", "script": ["check doc-010.txt", "check doc-052.txt", "check notes-frank-4.txt", "check doc-031.txt"], "expect": ["doc-010.txt: intact", "doc-052.txt: intact", "notes-frank-4.txt: not in library", "doc-031.txt: not uploaded"]}
+{"t": 954.2927122073356, "user": "dave", "do": "request", "file": "doc-021.txt"}
+{"t": 963.0331339055721, "user": "dave", "do": "submit", "script": ["check doc-051.txt", "check doc-043.txt", "check notes-dave-2.txt", "check doc-017.txt"], "expect": ["doc-051.txt: modified", "doc-043.txt: intact", "notes-dave-2.txt: not in library", "doc-017.txt: not uploaded"]}
+{"t": 1249.0, "user": "dave", "do": "upload", "file": "doc-012.txt", "size_kb": 256.0, "seed": 1011, "variant": "tampered"}
+{"t": 1251.7137591651087, "user": "dave", "do": "upload", "file": "doc-027.txt", "size_kb": 131.0, "seed": 1026, "variant": "copy"}
+{"t": 1254.2081129191872, "user": "dave", "do": "upload", "file": "doc-052.txt", "size_kb": 15.8, "seed": 1051, "variant": "tampered"}
+{"t": 1268.0, "user": "erin", "do": "upload", "file": "doc-004.txt", "size_kb": 65.5, "seed": 1003, "variant": "tampered"}
+{"t": 1269.5787041771855, "user": "erin", "do": "upload", "file": "doc-031.txt", "size_kb": 260.6, "seed": 1030, "variant": "copy"}
+{"t": 1271.225120262063, "user": "erin", "do": "upload", "file": "notes-erin-0.txt", "size_kb": 37.3, "seed": 34258, "variant": "private"}
+{"t": 1285.6103163354323, "user": "dave", "do": "submit", "script": ["check doc-012.txt", "check doc-027.txt", "check doc-052.txt", "check doc-018.txt"], "expect": ["doc-012.txt: modified", "doc-027.txt: intact", "doc-052.txt: modified", "doc-018.txt: not uploaded"]}
+{"t": 1304.5833324831758, "user": "erin", "do": "submit", "script": ["check doc-004.txt", "check doc-031.txt", "check notes-erin-0.txt", "check doc-012.txt"], "expect": ["doc-004.txt: modified", "doc-031.txt: intact", "notes-erin-0.txt: not in library", "doc-012.txt: not uploaded"]}
+{"t": 1307.0, "user": "carol", "do": "upload", "file": "doc-021.txt", "size_kb": 95.8, "seed": 1020, "variant": "tampered"}
+{"t": 1309.4197393546099, "user": "carol", "do": "upload", "file": "doc-027.txt", "size_kb": 131.0, "seed": 1026, "variant": "copy"}
+{"t": 1312.0960780673188, "user": "carol", "do": "upload", "file": "notes-carol-1.txt", "size_kb": 6.7, "seed": 107984, "variant": "private"}
+{"t": 1313.360551365904, "user": "erin", "do": "request", "file": "doc-022.txt"}
+{"t": 1354.9385968435627, "user": "carol", "do": "submit", "script": ["check doc-021.txt", "check doc-027.txt", "check notes-carol-1.txt", "check doc-030.txt"], "expect": ["doc-021.txt: modified", "doc-027.txt: intact", "notes-carol-1.txt: not in library", "doc-030.txt: not uploaded"]}
+{"t": 1500.0, "user": "frank", "do": "upload", "file": "doc-005.txt", "size_kb": 43.4, "seed": 1004, "variant": "copy"}
+{"t": 1500.3, "user": "alice", "do": "upload", "file": "doc-020.txt", "size_kb": 121.6, "seed": 1019, "variant": "copy"}
+{"t": 1500.6, "user": "grace", "do": "upload", "file": "doc-040.txt", "size_kb": 291.9, "seed": 1039, "variant": "copy"}
+{"t": 1500.9, "user": "dave", "do": "upload", "file": "doc-047.txt", "size_kb": 48.0, "seed": 1046, "variant": "copy"}
+{"t": 1502.6621127013652, "user": "alice", "do": "upload", "file": "doc-049.txt", "size_kb": 86.3, "seed": 1048, "variant": "tampered"}
+{"t": 1503.3787354536346, "user": "dave", "do": "upload", "file": "doc-026.txt", "size_kb": 107.2, "seed": 1025, "variant": "copy"}
+{"t": 1503.4571049578929, "user": "grace", "do": "upload", "file": "notes-grace-4.txt", "size_kb": 45.8, "seed": 42014, "variant": "private"}
+{"t": 1503.9394456811253, "user": "alice", "do": "upload", "file": "notes-alice-4.txt", "size_kb": 7.8, "seed": 71761, "variant": "private"}
+{"t": 1538.5777753572315, "user": "alice", "do": "submit", "script": ["check doc-020.txt", "check doc-049.txt", "check notes-alice-4.txt", "check doc-015.txt"], "expect": ["doc-020.txt: intact", "doc-049.txt: modified", "notes-alice-4.txt: not in library", "doc-015.txt: not uploaded"]}
+{"t": 1539.5998968878173, "user": "dave", "do": "submit", "script": ["check doc-047.txt", "check doc-026.txt", "check doc-017.txt"], "expect": ["doc-047.txt: intact", "doc-026.txt: intact", "doc-017.txt: not uploaded"]}
+{"t": 1542.9180021600082, "user": "frank", "do": "submit", "script": ["check doc-005.txt", "check doc-009.txt"], "expect": ["doc-005.txt: intact", "doc-009.txt: not uploaded"]}
+{"t": 1545.314190418783, "user": "alice", "do": "request", "file": "doc-027.txt"}
+{"t": 1548.550335706951, "user": "grace", "do": "submit", "script": ["check doc-040.txt", "check notes-grace-4.txt", "check doc-036.txt"], "expect": ["doc-040.txt: intact", "notes-grace-4.txt: not in library", "doc-036.txt: not uploaded"]}
+{"t": 1554.3871331965117, "user": "dave", "do": "request", "file": "doc-043.txt"}
+{"t": 1562.0855285113487, "user": "grace", "do": "request", "file": "doc-039.txt"}
+{"t": 1595.0, "user": "carol", "do": "upload", "file": "doc-026.txt", "size_kb": 107.2, "seed": 1025, "variant": "copy"}
+{"t": 1597.543798511156, "user": "carol", "do": "upload", "file": "doc-018.txt", "size_kb": 105.1, "seed": 1017, "variant": "copy"}
+{"t": 1600.282973483444, "user": "carol", "do": "upload", "file": "notes-carol-2.txt", "size_kb": 17.0, "seed": 100872, "variant": "private"}
+{"t": 1639.83349496615, "user": "carol", "do": "submit", "script": ["check doc-026.txt", "check doc-018.txt", "check notes-carol-2.txt", "check doc-051.txt"], "expect": ["doc-026.txt: intact", "doc-018.txt: intact", "notes-carol-2.txt: not in library", "doc-051.txt: not uploaded"]}
+{"t": 1647.759562099074, "user": "carol", "do": "request", "file": "doc-041.txt"}
+{"t": 1659.0, "user": "alice", "do": "upload", "file": "doc-048.txt", "size_kb": 237.1, "seed": 1047, "variant": "tampered"}
+{"t": 1661.19041885584, "user": "alice", "do": "upload", "file": "doc-032.txt", "size_kb": 158.2, "seed": 1031, "variant": "copy"}
+{"t": 1662.2518759112975, "user": "alice", "do": "upload", "file": "doc-008.txt", "size_kb": 41.9, "seed": 1007, "variant": "tampered"}
+{"t": 1675.0, "user": "frank", "do": "upload", "file": "doc-047.txt", "size_kb": 48.0, "seed": 1046, "variant": "copy"}
+{"t": 1701.0590765525708, "user": "alice", "do": "submit", "script": ["check doc-048.txt", "check doc-032.txt", "check doc-008.txt", "check doc-013.txt"], "expect": ["doc-048.txt: modified", "doc-032.txt: intact", "doc-008.txt: modified", "doc-013.txt: not uploaded"]}
+{"t": 1706.0, "user": "carol", "do": "upload", "file": "doc-016.txt", "size_kb": 91.1, "seed": 1015, "variant": "copy"}
+{"t": 1707.2867937248952, "user": "carol", "do": "upload", "file": "doc-003.txt", "size_kb": 89.5, "seed": 1002, "variant": "copy"}
+{"t": 1708.0171894857783, "user": "frank", "do": "submit", "script": ["check doc-047.txt", "check doc-029.txt"], "expect": ["doc-047.txt: intact", "doc-029.txt: not uploaded"]}
+{"t": 1709.163403418697, "user": "carol", "do": "upload", "file": "doc-015.txt", "size_kb": 91.1, "seed": 1014, "variant": "copy"}
+{"t": 1710.7013798346538, "user": "carol", "do": "upload", "file": "notes-carol-3.txt", "size_kb": 20.1, "seed": 48595, "variant": "private"}
+{"t": 1712.5340787709165, "user": "alice", "do": "request", "file": "doc-021.txt"}
+{"t": 1720.5077880672636, "user": "frank", "do": "request", "file": "doc-028.txt"}
+{"t": 1742.6960216311836, "user": "carol", "do": "submit", "script": ["check doc-016.txt", "check doc-003.txt", "check doc-015.txt", "check notes-carol-3.txt", "check doc-012.txt"], "expect": ["doc-016.txt: intact", "doc-003.txt: intact", "doc-015.txt: intact", "notes-carol-3.txt: not in library", "doc-012.txt: not uploaded"]}
+{"t": 1800.0, "user": "emma", "do": "upload", "file": "doc-055.txt", "size_kb": 74.0, "seed": 5000, "variant": "base"}
+{"t": 1801.0, "user": "emma", "do": "submit", "script": ["modify doc-055.txt"], "expect": ["doc-055.txt: updated"]}
+{"t": 1900.0, "user": "bob", "do": "upload", "file": "bulk-bob-3.txt", "size_kb": 229.8, "seed": 38030, "variant": "private"}
+{"t": 1943.9143672007003, "user": "bob", "do": "submit", "script": ["check bulk-bob-3.txt", "check doc-008.txt"], "expect": ["bulk-bob-3.txt: not in library", "doc-008.txt: not uploaded"]}
+{"t": 1958.607524794667, "user": "bob", "do": "request", "file": "doc-035.txt"}
+{"t": 1976.0, "user": "erin", "do": "upload", "file": "doc-009.txt", "size_kb": 39.6, "seed": 1008, "variant": "tampered"}
+{"t": 1977.1891257142229, "user": "erin", "do": "upload", "file": "doc-042.txt", "size_kb": 93.6, "seed": 1041, "variant": "tampered"}
+{"t": 1978.887472827046, "user": "erin", "do": "upload", "file": "notes-erin-1.txt", "size_kb": 5.7, "seed": 11865, "variant": "private"}
+{"t": 2000.0, "user": "eli", "do": "upload", "file": "doc-056.txt", "size_kb": 294.7, "seed": 5001, "variant": "base"}
+{"t": 2001.0, "user": "eli", "do": "submit", "script": ["modify doc-056.txt"], "expect": ["doc-056.txt: updated"]}
+{"t": 2002.0, "user": "erin", "do": "upload", "file": "doc-015.txt", "size_kb": 91.1, "seed": 1014, "variant": "tampered"}
+{"t": 2021.4959344097563, "user": "erin", "do": "submit", "script": ["check doc-009.txt", "check doc-042.txt", "check notes-erin-1.txt", "check doc-047.txt"], "expect": ["doc-009.txt: modified", "doc-042.txt: modified", "notes-erin-1.txt: not in library", "doc-047.txt: not uploaded"]}
+{"t": 2042.8792967302086, "user": "erin", "do": "submit", "script": ["check doc-015.txt", "check doc-040.txt"], "expect": ["doc-015.txt: modified", "doc-040.txt: not uploaded"]}
+{"t": 2055.80007703055, "user": "erin", "do": "request", "file": "doc-011.txt"}
+{"t": 2100.0, "user": "carol", "do": "upload", "file": "doc-003.txt", "size_kb": 89.5, "seed": 1002, "variant": "tampered"}
+{"t": 2100.3, "user": "frank", "do": "upload", "file": "doc-011.txt", "size_kb": 141.2, "seed": 1010, "variant": "tampered"}
+{"t": 2100.6, "user": "dave", "do": "upload", "file": "doc-005.txt", "size_kb": 43.4, "seed": 1004, "variant": "copy"}
+{"t": 2100.9, "user": "alice", "do": "upload", "file": "doc-001.txt", "size_kb": 134.1, "seed": 1000, "variant": "copy"}
+{"t": 2101.609208016802, "user": "carol", "do": "upload", "file": "doc-027.txt", "size_kb": 131.0, "seed": 1026, "variant": "tampered"}
+{"t": 2102.5063710042978, "user": "frank", "do": "upload", "file": "doc-026.txt", "size_kb": 107.2, "seed": 1025, "variant": "copy"}
+{"t": 2102.9924247142903, "user": "dave", "do": "upload", "file": "notes-dave-3.txt", "size_kb": 32.1, "seed": 81179, "variant": "private"}
+{"t": 2103.1481376274787, "user": "alice", "do": "upload", "file": "notes-alice-5.txt", "size_kb": 48.1, "seed": 40432, "variant": "private"}
+{"t": 2103.732929370452, "user": "carol", "do": "upload", "file": "doc-018.txt", "size_kb": 105.1, "seed": 1017, "variant": "tampered"}
+{"t": 2103.7629651147213, "user": "frank", "do": "upload", "file": "doc-039.txt", "size_kb": 173.6, "seed": 1038, "variant": "tampered"}
+{"t": 2104.8908056416967, "user": "carol", "do": "upload", "file": "notes-carol-7.txt", "size_kb": 29.5, "seed": 15610, "variant": "private"}
+{"t": 2139.2160007398393, "user": "alice", "do": "submit", "script": ["check doc-001.txt", "check notes-alice-5.txt", "check doc-047.txt"], "expect": ["doc-001.txt: intact", "notes-alice-5.txt: not in library", "doc-047.txt: not uploaded"]}
+{"t": 2145.5248089335655, "user": "carol", "do": "submit", "script": ["check doc-003.txt", "check doc-027.txt", "check doc-018.txt", "check notes-carol-7.txt", "check doc-048.txt"], "expect": ["doc-003.txt: modified", "doc-027.txt: modified", "doc-018.txt: modified", "notes-carol-7.txt: not in library", "doc-048.txt: not uploaded"]}
+{"t": 2148.443313010116, "user": "dave", "do": "submit", "script": ["check doc-005.txt", "check notes-dave-3.txt", "check doc-037.txt"], "expect": ["doc-005.txt: intact", "notes-dave-3.txt: not in library", "doc-037.txt: not uploaded"]}
+{"t": 2149.9199456232727, "user": "frank", "do": "submit", "script": ["check doc-011.txt", "check doc-026.txt", "check doc-039.txt", "check doc-054.txt"], "expect": ["doc-011.txt: modified", "doc-026.txt: intact", "doc-039.txt: modified", "doc-054.txt: not uploaded"]}
+{"t": 2151.0, "user": "frank", "do": "upload", "file": "doc-024.txt", "size_kb": 233.3, "seed": 1023, "variant": "tampered"}
+{"t": 2151.482921905284, "user": "alice", "do": "request", "file": "doc-054.txt"}
+{"t": 2153.024197850645, "user": "frank", "do": "upload", "file": "doc-036.txt", "size_kb": 83.3, "seed": 1035, "variant": "copy"}
+{"t": 2155.5030237118867, "user": "frank", "do": "upload", "file": "doc-032.txt", "size_kb": 158.2, "seed": 1031, "variant": "copy"}
+{"t": 2167.0, "user": "bob", "do": "upload", "file": "doc-053.txt", "size_kb": 234.8, "seed": 1052, "variant": "copy"}
+{"t": 2169.4696014964993, "user": "bob", "do": "upload", "file": "doc-002.txt", "size_kb": 156.7, "seed": 1001, "variant": "copy"}
+{"t": 2171.1353174521137, "user": "bob", "do": "upload", "file": "doc-048.txt", "size_kb": 237.1, "seed": 1047, "variant": "copy"}
+{"t": 2173.943585313447, "user": "bob", "do": "upload", "file": "notes-bob-2.txt", "size_kb": 39.6, "seed": 38030, "variant": "private"}
+{"t": 2191.0651292292478, "user": "frank", "do": "submit", "script": ["check doc-024.txt", "check doc-036.txt", "check doc-032.txt", "check doc-054.txt"], "expect": ["doc-024.txt: modified", "doc-036.txt: intact", "doc-032.txt: intact", "doc-054.txt: not uploaded"]}
+{"t": 2201.6154316666825, "user": "frank", "do": "request", "file": "doc-029.txt"}
+{"t": 2217.647432955354, "user": "bob", "do": "submit", "script": ["check doc-053.txt", "check doc-002.txt", "check doc-048.txt", "check notes-bob-2.txt", "check doc-014.txt"], "expect": ["doc-053.txt: intact", "doc-002.txt: intact", "doc-048.txt: intact", "notes-bob-2.txt: not in library", "doc-014.txt: not uploaded"]}
+{"t": 2223.9233971055824, "user": "bob", "do": "request", "file": "doc-045.txt"}
+{"t": 2226.0, "user": "dave", "do": "upload", "file": "doc-029.txt", "size_kb": 127.6, "seed": 1028, "variant": "tampered"}
+{"t": 2227.271936913782, "user": "dave", "do": "upload", "file": "doc-035.txt", "size_kb": 295.9, "seed": 1034, "variant": "copy"}
+{"t": 2229.8945078819183, "user": "dave", "do": "upload", "file": "doc-052.txt", "size_kb": 15.8, "seed": 1051, "variant": "tampered"}
+{"t": 2239.0, "user": "bob", "do": "upload", "file": "doc-043.txt", "size_kb": 282.2, "seed": 1042, "variant": "copy"}
+{"t": 2241.863274335085, "user": "bob", "do": "upload", "file": "doc-009.txt", "size_kb": 39.6, "seed": 1008, "variant": "tampered"}
+{"t": 2265.32515363824, "user": "dave", "do": "submit", "script": ["check doc-029.txt", "check doc-035.txt", "check doc-052.txt", "check doc-037.txt"], "expect": ["doc-029.txt: modified", "doc-035.txt: intact", "doc-052.txt: modified", "doc-037.txt: not uploaded"]}
+{"t": 2281.190420592225, "user": "bob", "do": "submit", "script": ["check doc-043.txt", "check doc-009.txt", "check doc-036.txt"], "expect": ["doc-043.txt: intact", "doc-009.txt: modified", "doc-036.txt: modified"]}
+{"t": 2340.0, "user": "grace", "do": "upload", "file": "doc-005.txt", "size_kb": 43.4, "seed": 1004, "variant": "copy"}
+{"t": 2342.6675741849094, "user": "grace", "do": "upload", "file": "doc-002.txt", "size_kb": 156.7, "seed": 1001, "variant": "copy"}
+{"t": 2345.3817598083465, "user": "grace", "do": "upload", "file": "notes-grace-1.txt", "size_kb": 25.7, "seed": 74309, "variant": "private"}
+{"t": 2346.0, "user": "grace", "do": "upload", "file": "doc-011.txt", "size_kb": 141.2, "seed": 1010, "variant": "copy"}
+{"t": 2348.144342164843, "user": "grace", "do": "upload", "file": "doc-020.txt", "size_kb": 121.6, "seed": 1019, "variant": "tampered"}
+{"t": 2350.8075058386944, "user": "grace", "do": "upload", "file": "notes-grace-2.txt", "size_kb": 7.4, "seed": 80259, "variant": "private"}
+{"t": 2382.8466871283717, "user": "grace", "do": "submit", "script": ["check doc-005.txt", "check doc-002.txt", "check notes-grace-1.txt", "check doc-046.txt"], "expect": ["doc-005.txt: intact", "doc-002.txt: intact", "notes-grace-1.txt: not in library", "doc-046.txt: not uploaded"]}
+{"t": 2397.3876628992825, "user": "grace", "do": "submit", "script": ["check doc-011.txt", "check doc-020.txt", "check notes-grace-2.txt", "check doc-036.txt"], "expect": ["doc-011.txt: intact", "doc-020.txt: modified", "notes-grace-2.txt: not in library", "doc-036.txt: not uploaded"]}
+{"t": 2397.646352323786, "user": "grace", "do": "request", "file": "doc-029.txt"}
+{"t": 2410.336479528108, "user": "grace", "do": "request", "file": "doc-029.txt"}
+{"t": 2459.0, "user": "alice", "do": "upload", "file": "doc-043.txt", "size_kb": 282.2, "seed": 1042, "variant": "tampered"}
+{"t": 2461.0613005104155, "user": "alice", "do": "upload", "file": "doc-054.txt", "size_kb": 79.1, "seed": 1053, "variant": "copy"}
+{"t": 2462.3733909000134, "user": "alice", "do": "upload", "file": "notes-alice-2.txt", "size_kb": 49.3, "seed": 73920, "variant": "private"}
+{"t": 2507.79444105426, "user": "alice", "do": "submit", "script": ["check doc-043.txt", "check doc-054.txt", "check notes-alice-2.txt", "check doc-015.txt"], "expect": ["doc-043.txt: modified", "doc-054.txt: intact", "notes-alice-2.txt: not in library", "doc-015.txt: not uploaded"]}
+{"t": 2509.0, "user": "carol", "do": "upload", "file": "doc-027.txt", "size_kb": 131.0, "seed": 1026, "variant": "tampered"}
+{"t": 2550.69359974733, "user": "carol", "do": "submit", "script": ["check doc-027.txt", "check doc-046.txt"], "expect": ["doc-027.txt: modified", "doc-046.txt: not uploaded"]}
+{"t": 2556.7231818622504, "user": "carol", "do": "request", "file": "doc-037.txt"}
+{"t": 2586.0, "user": "grace", "do": "upload", "file": "doc-025.txt", "size_kb": 177.6, "seed": 1024, "variant": "copy"}
+{"t": 2588.5222703099607, "user": "grace", "do": "upload", "file": "doc-004.txt", "size_kb": 65.5, "seed": 1003, "variant": "copy"}
+{"t": 2590.549684430216, "user": "grace", "do": "upload", "file": "notes-grace-3.txt", "size_kb": 20.7, "seed": 87310, "variant": "private"}
+{"t": 2600.0, "user": "emma", "do": "submit", "script": ["remove doc-057.txt"], "expect": ["doc-057.txt: removed"]}
+{"t": 2616.0, "user": "erin", "do": "upload", "file": "doc-017.txt", "size_kb": 36.6, "seed": 1016, "variant": "copy"}
+{"t": 2617.0437056591204, "user": "erin", "do": "upload", "file": "notes-erin-2.txt", "size_kb": 32.8, "seed": 90004, "variant": "private"}
+{"t": 2622.905814421756, "user": "grace", "do": "submit", "script": ["check doc-025.txt", "check doc-004.txt", "check notes-grace-3.txt", "check doc-016.txt"], "expect": ["doc-025.txt: intact", "doc-004.txt: intact", "notes-grace-3.txt: not in library", "doc-016.txt: not uploaded"]}
+{"t": 2640.0, "user": "frank", "do": "upload", "file": "doc-036.txt", "size_kb": 83.3, "seed": 1035, "variant": "copy"}
+{"t": 2641.859486914915, "user": "frank", "do": "upload", "file": "notes-frank-1.txt", "size_kb": 23.9, "seed": 30669, "variant": "private"}
+{"t": 2652.255340119509, "user": "erin", "do": "submit", "script": ["check doc-017.txt", "check notes-erin-2.txt", "check doc-028.txt"], "expect": ["doc-017.txt: intact", "notes-erin-2.txt: not in library", "doc-028.txt: not uploaded"]}
+{"t": 2679.879700293383, "user": "frank", "do": "submit", "script": ["check doc-036.txt", "check notes-frank-1.txt", "check doc-006.txt"], "expect": ["doc-036.txt: intact", "notes-frank-1.txt: not in library", "doc-006.txt: not uploaded"]}
+{"t": 2686.2917466423573, "user": "frank", "do": "request", "file": "doc-033.txt"}
+{"t": 2687.0, "user": "grace", "do": "upload", "file": "doc-039.txt", "size_kb": 173.6, "seed": 1038, "variant": "copy"}
+{"t": 2700.0, "user": "alice", "do": "upload", "file": "doc-034.txt", "size_kb": 138.8, "seed": 1033, "variant": "tampered"}
+{"t": 2700.3, "user": "dave", "do": "upload", "file": "doc-050.txt", "size_kb": 102.4, "seed": 1049, "variant": "copy"}
+{"t": 2700.6, "user": "grace", "do": "upload", "file": "doc-027.txt", "size_kb": 131.0, "seed": 1026, "variant": "copy"}
+{"t": 2700.9, "user": "erin", "do": "upload", "file": "doc-024.txt", "size_kb": 233.3, "seed": 1023, "variant": "tampered"}
+{"t": 2701.2117645452427, "user": "alice", "do": "upload", "file": "notes-alice-6.txt", "size_kb": 20.9, "seed": 87921, "variant": "private"}
+{"t": 2702.24378054545, "user": "dave", "do": "upload", "file": "doc-013.txt", "size_kb": 48.7, "seed": 1012, "variant": "copy"}
+{"t": 2702.453023021209, "user": "erin", "do": "upload", "file": "doc-050.txt", "size_kb": 102.4, "seed": 1049, "variant": "copy"}
+{"t": 2702.815757880871, "user": "grace", "do": "upload", "file": "doc-014.txt", "size_kb": 197.9, "seed": 1013, "variant": "copy"}
+{"t": 2703.690626790258, "user": "dave", "do": "upload", "file": "doc-032.txt", "size_kb": 158.2, "seed": 1031, "variant": "tampered"}
+{"t": 2703.9273701489374, "user": "erin", "do": "upload", "file": "doc-029.txt", "size_kb": 127.6, "seed": 1028, "variant": "copy"}
+{"t": 2705.5284539821373, "user": "grace", "do": "upload", "file": "doc-028.txt", "size_kb": 18.2, "seed": 1027, "variant": "tampered"}
+{"t": 2705.6941006939533, "user": "erin", "do": "upload", "file": "notes-erin-5.txt", "size_kb": 22.3, "seed": 40358, "variant": "private"}
+{"t": 2707.9401832499198, "user": "grace", "do": "upload", "file": "notes-grace-5.txt", "size_kb": 29.0, "seed": 66710, "variant": "private"}
+{"t": 2725.0496674242077, "user": "grace", "do": "submit", "script": ["check doc-039.txt", "check doc-033.txt"], "expect": ["doc-039.txt: intact", "doc-033.txt: not uploaded"]}
+{"t": 2731.254632038474, "user": "grace", "do": "request", "file": "doc-015.txt"}
+{"t": 2734.1718560319864, "user": "alice", "do": "submit", "script": ["check doc-034.txt", "check notes-alice-6.txt", "check doc-031.txt"], "expect": ["doc-034.txt: modified", "notes-alice-6.txt: not in library", "doc-031.txt: not uploaded"]}
+{"t": 2738.163336328827, "user": "erin", "do": "submit", "script": ["check doc-024.txt", "check doc-050.txt", "check doc-029.txt", "check notes-erin-5.txt", "check doc-014.txt"], "expect": ["doc-024.txt: modified", "doc-050.txt: intact", "doc-029.txt: intact", "notes-erin-5.txt: not in library", "doc-014.txt: not uploaded"]}
+{"t": 2747.989565168113, "user": "dave", "do": "submit", "script": ["check doc-050.txt", "check doc-013.txt", "check doc-032.txt", "check doc-049.txt"], "expect": ["doc-050.txt: intact", "doc-013.txt: intact", "doc-032.txt: modified", "doc-049.txt: not uploaded"]}
+{"t": 2754.369881449072, "user": "grace", "do": "submit", "script": ["check doc-027.txt", "check doc-014.txt", "check doc-028.txt", "check notes-grace-5.txt", "check doc-050.txt"], "expect": ["doc-027.txt: intact", "doc-014.txt: intact", "doc-028.txt: modified", "notes-grace-5.txt: not in library", "doc-050.txt: not uploaded"]}
+{"t": 2758.3767804128124, "user": "dave", "do": "request", "file": "doc-048.txt"}
+{"t": 2854.0, "user": "dave", "do": "upload", "file": "doc-004.txt", "size_kb": 65.5, "seed": 1003, "variant": "copy"}
+{"t": 2895.7693878816526, "user": "dave", "do": "submit", "script": ["check doc-004.txt", "check doc-048.txt"], "expect": ["doc-004.txt: intact", "doc-048.txt: not uploaded"]}
+{"t": 2900.0, "user": "eli", "do": "submit", "script": ["remove doc-058.txt"], "expect": ["doc-058.txt: removed"]}
+{"t": 2905.259594744872, "user": "dave", "do": "request", "file": "doc-022.txt"}
+{"t": 2985.0, "user": "erin", "do": "upload", "file": "doc-046.txt", "size_kb": 247.2, "seed": 1045, "variant": "tampered"}
+{"t": 2987.916084691201, "user": "erin", "do": "upload", "file": "doc-017.txt", "size_kb": 36.6, "seed": 1016, "variant": "copy"}
+{"t": 2990.8187784871825, "user": "erin", "do": "upload", "file": "notes-erin-3.txt", "size_kb": 3.8, "seed": 21872, "variant": "private"}
+{"t": 3000.0, "user": "carol", "do": "upload", "file": "bulk-carol-8.txt", "size_kb": 284.2, "seed": 15610, "variant": "private"}
+{"t": 3009.0, "user": "bob", "do": "upload", "file": "doc-032.txt", "size_kb": 158.2, "seed": 1031, "variant": "copy"}
+{"t": 3011.403178647712, "user": "bob", "do": "upload", "file": "doc-006.txt", "size_kb": 33.6, "seed": 1005, "variant": "tampered"}
+{"t": 3014.331497339628, "user": "bob", "do": "upload", "file": "doc-045.txt", "size_kb": 52.8, "seed": 1044, "variant": "copy"}
+{"t": 3023.219543444712, "user": "erin", "do": "submit", "script": ["check doc-046.txt", "check doc-017.txt", "check notes-erin-3.txt", "check doc-050.txt"], "expect": ["doc-046.txt: modified", "doc-017.txt: intact", "notes-erin-3.txt: not in library", "doc-050.txt: intact"]}
+{"t": 3038.2770334449274, "user": "carol", "do": "submit", "script": ["check bulk-carol-8.txt", "check doc-019.txt"], "expect": ["bulk-carol-8.txt: not in library", "doc-019.txt: not uploaded"]}
+{"t": 3043.9365368347053, "user": "carol", "do": "request", "file": "doc-046.txt"}
+{"t": 3049.0, "user": "erin", "do": "upload", "file": "doc-029.txt", "size_kb": 127.6, "seed": 1028, "variant": "copy"}
+{"t": 3050.0735095967, "user": "erin", "do": "upload", "file": "doc-045.txt", "size_kb": 52.8, "seed": 1044, "variant": "tampered"}
+{"t": 3051.2062674117133, "user": "erin", "do": "upload", "file": "notes-erin-4.txt", "size_kb": 6.3, "seed": 92593, "variant": "private"}
+{"t": 3056.03934413071, "user": "bob", "do": "submit", "script": ["check doc-032.txt", "check doc-006.txt", "check doc-045.txt", "check doc-028.txt"], "expect": ["doc-032.txt: intact", "doc-006.txt: modified", "doc-045.txt: intact", "doc-028.txt: not uploaded"]}
+{"t": 3084.0, "user": "carol", "do": "upload", "file": "doc-014.txt", "size_kb": 197.9, "seed": 1013, "variant": "tampered"}
+{"t": 3085.0206593875478, "user": "carol", "do": "upload", "file": "doc-024.txt", "size_kb": 233.3, "seed": 1023, "variant": "copy"}
+{"t": 3092.354929332953, "user": "erin", "do": "submit", "script": ["check doc-029.txt", "check doc-045.txt", "check notes-erin-4.txt", "check doc-006.txt"], "expect": ["doc-029.txt: intact", "doc-045.txt: modified", "notes-erin-4.txt: not in library", "doc-006.txt: not uploaded"]}
+{"t": 3099.0, "user": "carol", "do": "upload", "file": "doc-030.txt", "size_kb": 15.1, "seed": 1029, "variant": "copy"}
+{"t": 3100.3923678352007, "user": "carol", "do": "upload", "file": "doc-012.txt", "size_kb": 256.0, "seed": 1011, "variant": "tampered"}
+{"t": 3102.7160033445125, "user": "carol", "do": "upload", "file": "doc-054.txt", "size_kb": 79.1, "seed": 1053, "variant": "tampered"}
+{"t": 3105.028161932021, "user": "carol", "do": "upload", "file": "notes-carol-4.txt", "size_kb": 26.8, "seed": 10967, "variant": "private"}
+{"t": 3127.522058446385, "user": "carol", "do": "submit", "script": ["check doc-014.txt", "check doc-024.txt", "check doc-008.txt"], "expect": ["doc-014.txt: modified", "doc-024.txt: intact", "doc-008.txt: not uploaded"]}
+{"t": 3142.0, "user": "frank", "do": "upload", "file": "doc-040.txt", "size_kb": 291.9, "seed": 1039, "variant": "tampered"}
+{"t": 3143.2951284127835, "user": "frank", "do": "upload", "file": "doc-023.txt", "size_kb": 111.8, "seed": 1022, "variant": "tampered"}
+{"t": 3145.831893588962, "user": "frank", "do": "upload", "file": "notes-frank-2.txt", "size_kb": 32.5, "seed": 50355, "variant": "private"}
+{"t": 3146.5659890187344, "user": "carol", "do": "submit", "script": ["check doc-030.txt", "check doc-012.txt", "check doc-054.txt", "check notes-carol-4.txt", "check doc-046.txt"], "expect": ["doc-030.txt: intact", "doc-012.txt: modified", "doc-054.txt: modified", "notes-carol-4.txt: not in library", "doc-046.txt: not uploaded"]}
+{"t": 3184.8331719392945, "user": "frank", "do": "submit", "script": ["check doc-040.txt", "check doc-023.txt", "check notes-frank-2.txt", "check doc-034.txt"], "expect": ["doc-040.txt: modified", "doc-023.txt: modified", "notes-frank-2.txt: not in library", "doc-034.txt: not uploaded"]}
+{"t": 3198.876139720142, "user": "frank", "do": "request", "file": "doc-042.txt"}
+{"t": 3200.0, "user": "bob", "do": "upload", "file": "doc-014.txt", "size_kb": 197.9, "seed": 1013, "variant": "copy"}
+{"t": 3200.3, "user": "grace", "do": "upload", "file": "doc-018.txt", "size_kb": 105.1, "seed": 1017, "variant": "copy"}
+{"t": 3200.6, "user": "alice", "do": "upload", "file": "doc-031.txt", "size_kb": 260.6, "seed": 1030, "variant": "copy"}
+{"t": 3200.9, "user": "dave", "do": "upload", "file": "doc-050.txt", "size_kb": 102.4, "seed": 1049, "variant": "tampered"}
+{"t": 3202.3261945307727, "user": "bob", "do": "upload", "file": "doc-003.txt", "size_kb": 89.5, "seed": 1002, "variant": "tampered"}
+{"t": 3202.3944310774064, "user": "alice", "do": "upload", "file": "doc-002.txt", "size_kb": 156.7, "seed": 1001, "variant": "tampered"}
+{"t": 3202.8681577081397, "user": "grace", "do": "upload", "file": "doc-037.txt", "size_kb": 192.4, "seed": 1036, "variant": "copy"}
+{"t": 3203.5761866466737, "user": "dave", "do": "upload", "file": "notes-dave-4.txt", "size_kb": 11.8, "seed": 81800, "variant": "private"}
+{"t": 3203.7312347459133, "user": "alice", "do": "upload", "file": "doc-005.txt", "size_kb": 43.4, "seed": 1004, "variant": "tampered"}
+{"t": 3205.052313582478, "user": "grace", "do": "upload", "file": "notes-grace-6.txt", "size_kb": 41.4, "seed": 14839, "variant": "private"}
+{"t": 3205.3372688230947, "user": "alice", "do": "upload", "file": "notes-alice-7.txt", "size_kb": 35.1, "seed": 102021, "variant": "private"}
+{"t": 3223.0, "user": "carol", "do": "upload", "file": "doc-027.txt", "size_kb": 131.0, "seed": 1026, "variant": "copy"}
+{"t": 3225.5230146521644, "user": "carol", "do": "upload", "file": "doc-004.txt", "size_kb": 65.5, "seed": 1003, "variant": "tampered"}
+{"t": 3227.843383107393, "user": "carol", "do": "upload", "file": "notes-carol-5.txt", "size_kb": 27.0, "seed": 68101, "variant": "private"}
+{"t": 3236.840344896589, "user": "dave", "do": "submit", "script": ["check doc-050.txt", "check notes-dave-4.txt", "check doc-030.txt"], "expect": ["doc-050.txt: modified", "notes-dave-4.txt: not in library", "doc-030.txt: not uploaded"]}
+{"t": 3243.220828733985, "user": "bob", "do": "submit", "script": ["check doc-014.txt", "check doc-003.txt", "check doc-040.txt"], "expect": ["doc-014.txt: intact", "doc-003.txt: modified", "doc-040.txt: not uploaded"]}
+{"t": 3244.15053572285, "user": "alice", "do": "submit", "script": ["check doc-031.txt", "check doc-002.txt", "check doc-005.txt", "check notes-alice-7.txt", "check doc-004.txt"], "expect": ["doc-031.txt: intact", "doc-002.txt: modified", "doc-005.txt: modified", "notes-alice-7.txt: not in library", "doc-004.txt: not uploaded"]}
+{"t": 3247.846622166466, "user": "grace", "do": "submit", "script": ["check doc-018.txt", "check doc-037.txt", "check notes-grace-6.txt", "check doc-008.txt"], "expect": ["doc-018.txt: intact", "doc-037.txt: intact", "notes-grace-6.txt: not in library", "doc-008.txt: not uploaded"]}
+{"t": 3251.276413410207, "user": "alice", "do": "request", "file": "doc-043.txt"}
+{"t": 3254.3420420419156, "user": "bob", "do": "request", "file": "doc-027.txt"}
+{"t": 3271.883459788537, "user": "carol", "do": "submit", "script": ["check doc-027.txt", "check doc-004.txt", "check notes-carol-5.txt", "check doc-010.txt"], "expect": ["doc-027.txt: intact", "doc-004.txt: modified", "notes-carol-5.txt: not in library", "doc-010.txt: not uploaded"]}
